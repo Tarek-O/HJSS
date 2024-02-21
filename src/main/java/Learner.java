@@ -3,7 +3,9 @@ public class Learner {
     private String name, gender, emergencyContactNumber;
     private int age, gradeLevel;
 
+    //Format of the UK Phone Number using Regex. Accepts country code as well.
     private final String phoneNumberRegex = "^(((\\+44\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((\\+44\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((\\+44\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$";
+
     public Learner(){};
     public Learner(String name, String gender, int age, String emergencyContactNumber, int gradeLevel) throws Exception {
         setName(name);
@@ -35,6 +37,7 @@ public class Learner {
     }
 
     public void setAge(int age) throws Exception {
+        //Age should be between 4 to 11 requirement
         if(age >= 4 && age <= 11){
             this.age = age;
         }else{
@@ -47,7 +50,7 @@ public class Learner {
     }
 
     public void  setEmergencyContactNumber(String emergencyContactNumber) throws Exception {
-       this.emergencyContactNumber = emergencyContactNumber;
+        //If the Phone Number matches the UK Format then add it to the number
        if(emergencyContactNumber.matches(phoneNumberRegex)){
             this.emergencyContactNumber = emergencyContactNumber;
        }else{
