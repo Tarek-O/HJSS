@@ -43,6 +43,12 @@ public class Lesson {
         setId(generateLessonID());
     }
 
+    public void addLearner(Learner inputLearner){
+        if(hasAvailableSpot() && !listOfLearners.contains(inputLearner)){
+            listOfLearners.add(inputLearner);
+        }
+    }
+
     /**
      *
      * @return Return boolean if the list of Learners can be appended.
@@ -64,7 +70,7 @@ public class Lesson {
      * @return ID of Lesson
      */
     public String generateLessonID(){
-        return getGradeLevel() + "GR" + getTimeSlot() + getDateOfLesson().getDayOfWeek().toString().substring(0,3).toUpperCase() + getDateOfLesson().getDayOfMonth() + getDateOfLesson().getMonth().toString().substring(0,3).toUpperCase()  + (getDateOfLesson().getYear()%100);
+        return getGradeLevel() + "GR" + getTimeSlot() + getDateOfLesson().getDayOfWeek().toString().substring(0,3).toUpperCase() + String.format("%02d", getDateOfLesson().getDayOfMonth()) + getDateOfLesson().getMonth().toString().substring(0,3).toUpperCase()  + (getDateOfLesson().getYear()%100);
     }
 
     public LocalDate getDateOfLesson() {
