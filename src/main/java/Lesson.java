@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Lesson {
 
@@ -65,11 +64,13 @@ public class Lesson {
      * If the Lesson has capacity available it will append the Learner's ID as one of its Learners. Then it adds the action in its logs.
      * @param inputLearnerID The ID of the Learner
      */
-    public void bookLesson(String inputLearnerID){
-        if(hasAvailableSpot() && !listOfLearners.contains(inputLearnerID)){
-            listOfLearners.add(inputLearnerID);
-            logOfActions.add(new LessonHistory(inputLearnerID, 0));
-        }
+    public void bookLesson(String inputLearnerID) throws Exception {
+        if(listOfLearners.contains(inputLearnerID)) throw new Exception("The learner has already booked this lesson!");
+
+        if(!hasAvailableSpot()) throw new Exception("The lesson is fully booked! You can not book a spot.");
+
+        listOfLearners.add(inputLearnerID);
+        logOfActions.add(new LessonHistory(inputLearnerID, 0));
     }
 
     public void cancelLesson(String learnerID){
