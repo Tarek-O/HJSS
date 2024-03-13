@@ -41,18 +41,14 @@ public class SchoolController {
         }
     }
 
-    public void attendLesson(Lesson lesson, String learnerID, String comment) {
-        try {
-            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment);
-        }catch(Exception e){
-            System.err.println(e.getMessage());
-        }
+    public void attendLesson(Lesson lesson, String learnerID, String comment, int rating) throws Exception {
+        lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
     }
 
-    public void attendLesson(String lessonID, String learnerID, String comment){
+    public void attendLesson(String lessonID, String learnerID, String comment, int rating){
         try {
             Lesson lesson = lessonController.getLessonByID(lessonID);
-            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment);
+            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
         }catch(Exception e){
             System.err.println(e.getMessage());
         }

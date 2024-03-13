@@ -88,11 +88,11 @@ public class LessonController{
         }
     }
 
-    public void attendLesson(String key, Lesson lesson, String learnerID, String comment){
+    public void attendLesson(String key, Lesson lesson, String learnerID, String comment, int rating) throws Exception {
         if(lesson.getListOfLearners().isEmpty() || !lesson.getListOfLearners().contains(learnerID)){
             return;
         }
-        lesson.getLogOfActions().add(new LessonEvent(key, learnerID, 1, comment));
+        lesson.getLogOfActions().add(new LessonEvent(key, learnerID, 1, comment, rating));
     }
 
     public LessonEvent getLastEventOfLearner(Lesson lesson, String learnerID) throws Exception {

@@ -7,6 +7,8 @@ public class LessonEvent {
     private LocalDate dateOfRecord;
     private int status;
     private String comment;
+    //numerical rating of the lesson ranging from 1 to 5 (1: Very dissatisfied, 2: Dissatisfied, 3: Ok, 4: Satisfied, 5: Very Satisfied)
+    private int rating;
 
     /**
      *
@@ -20,12 +22,13 @@ public class LessonEvent {
         setStatus(status);
     }
 
-    public LessonEvent(String key, String learnerID, int status, String comment) {
+    public LessonEvent(String key, String learnerID, int status, String comment, int rating) throws Exception {
         setID(key);
         setLearnerID(learnerID);
         dateOfRecord = LocalDate.now();
         setStatus(status);
         setComment(comment);
+        setRating(rating);
     }
 
     public LessonEvent(){};
@@ -73,5 +76,14 @@ public class LessonEvent {
             return;
         }
         this.ID = "BREF_" + ID;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) throws Exception {
+        if(rating < 0 && rating > 5) throw new Exception("The rating is invalid. Please select a valid rating between 1 and 5");
+        this.rating = rating;
     }
 }
