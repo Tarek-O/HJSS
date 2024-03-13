@@ -1,21 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
-public class Controller {
+public class LessonController{
 
     private HashMap<String, Lesson> mapOfLessons;
-    private ArrayList<Learner> arrayOfLearners;
 
-    Controller(){
-         mapOfLessons = new HashMap<String, Lesson>();
-         arrayOfLearners = new ArrayList<Learner>();
-    }
-
-    public void linkLearnerToLesson(Learner inputLearner, Lesson inputLesson){
-        addNewLearner(inputLearner);
-        addNewLesson(inputLesson);
-        mapOfLessons.get(inputLesson.getId()).addLearner(inputLearner);
+    LessonController(){
+        mapOfLessons = new HashMap<String, Lesson>();
     }
 
     /**
@@ -62,25 +53,8 @@ public class Controller {
         mapOfLessons.remove(remLesson.getId());
     }
 
-    /**
-     * Add a new Learner and return true if it did not exist.
-     * @param newLearner
-     * @return
-     */
-    public boolean addNewLearner(Learner newLearner){
-        if(!arrayOfLearners.contains(newLearner)){
-            arrayOfLearners.add(newLearner);
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Removes learner from list.
-     * @param remLearner
-     */
-    public void removeLearner(Learner remLearner){
-        arrayOfLearners.remove(remLearner);
+    public Lesson getLessonByID(String ID){
+        return getMapOfLessons().get(ID);
     }
 
     public HashMap<String, Lesson> getMapOfLessons() {
@@ -89,13 +63,5 @@ public class Controller {
 
     public void setMapOfLessons(HashMap<String, Lesson> mapOfLessons) {
         this.mapOfLessons = mapOfLessons;
-    }
-
-    public ArrayList<Learner> getArrayOfLearners() {
-        return arrayOfLearners;
-    }
-
-    public void setArrayOfLearners(ArrayList<Learner> arrayOfLearners) {
-        this.arrayOfLearners = arrayOfLearners;
     }
 }

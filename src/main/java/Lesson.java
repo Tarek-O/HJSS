@@ -1,52 +1,47 @@
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 public class Lesson {
+
+    private final int maxNumberOfLearners = 4;
 
     private String id;
     private LocalDate dateOfLesson;
     private int gradeLevel;
-    private ArrayList<Learner> listOfLearners;
     private String timeSlot;
-    private final int maxNumberOfLearners = 4;
+    private ArrayList<String> listOfLearners;
+    private ArrayList<LessonHistory> logOfActions;
 
     /**
      * Constructor for Lesson where the ID is automatically generated based on input.
-     * @param dateOfLesson
-     * @param gradeLevel
-     * @param timeSlot
-     * @param listOfLearners
+     * @param dateOfLesson Date of when the Lesson will occur
+     * @param gradeLevel The grade level of which this Lesson is
+     * @param timeSlot The time slot of the Lesson
+     * @param listOfLearners An array of String consisting of the IDs of the Learners
      */
-    public Lesson(LocalDate dateOfLesson, int gradeLevel, String timeSlot, ArrayList<Learner> listOfLearners){
+    public Lesson(LocalDate dateOfLesson, int gradeLevel, String timeSlot, ArrayList<String> listOfLearners){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
         setTimeSlot(timeSlot);
-        this.listOfLearners = listOfLearners;
+        setListOfLearners(listOfLearners);
         setId(generateLessonID());
+        logOfActions = new ArrayList<LessonHistory>();
     }
 
     /**
      * Constructor for Lesson where the ID is automatically generated based on input.
-     * @param dateOfLesson
-     * @param gradeLevel
-     * @param timeSlot
+     * @param dateOfLesson Date of when the Lesson will occur
+     * @param gradeLevel The grade level of which this Lesson is
+     * @param timeSlot The time slot of the Lesson
      */
     public Lesson(LocalDate dateOfLesson, int gradeLevel, String timeSlot){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
         setTimeSlot(timeSlot);
-        listOfLearners = new ArrayList<Learner>();
+        listOfLearners = new ArrayList<String>();
         setId(generateLessonID());
-    }
-
-    public void addLearner(Learner inputLearner){
-        if(hasAvailableSpot() && !listOfLearners.contains(inputLearner)){
-            listOfLearners.add(inputLearner);
-        }
+        logOfActions = new ArrayList<LessonHistory>();
     }
 
     /**
@@ -57,13 +52,6 @@ public class Lesson {
         return listOfLearners.size() < maxNumberOfLearners;
     }
 
-    /**
-     *
-     * @return Size of Learners
-     */
-    public int getNumberOfLearners(){
-        return listOfLearners.size();
-    }
 
     /**
      * The ID of the Lesson is generated using the Grade Level, Time Slot, Day of the Week, Date, Month and Year.
@@ -71,6 +59,40 @@ public class Lesson {
      */
     public String generateLessonID(){
         return getGradeLevel() + "GR" + getTimeSlot() + getDateOfLesson().getDayOfWeek().toString().substring(0,3).toUpperCase() + String.format("%02d", getDateOfLesson().getDayOfMonth()) + getDateOfLesson().getMonth().toString().substring(0,3).toUpperCase()  + (getDateOfLesson().getYear()%100);
+    }
+
+    /**
+     * If the Lesson has capacity available it will append the Learner's ID as one of its Learners. Then it adds the action in its logs.
+     * @param inputLearnerID The ID of the Learner
+     */
+    public void bookLesson(String inputLearnerID){
+        if(hasAvailableSpot() && !listOfLearners.contains(inputLearnerID)){
+            listOfLearners.add(inputLearnerID);
+            logOfActions.add(new LessonHistory(inputLearnerID, 0));
+        }
+    }
+
+    public void cancelLesson(String learnerID){
+        if(getListOfLearners().isEmpty()) {
+            return;
+        }
+        getListOfLearners().remove(learnerID);
+        logOfActions.add(new LessonHistory(learnerID, -1));
+    }
+
+    public void attendLesson(String learnerID, String comment){
+        if(getListOfLearners().isEmpty() || !getListOfLearners().contains(learnerID)){
+            return;
+        }
+        logOfActions.add(new LessonHistory(learnerID, 1, comment));
+    }
+
+    /**
+     *
+     * @return Size of Learners
+     */
+    public int getNumberOfLearners(){
+        return listOfLearners.size();
     }
 
     public LocalDate getDateOfLesson() {
@@ -89,11 +111,11 @@ public class Lesson {
         this.gradeLevel = gradeLevel;
     }
 
-    public ArrayList<Learner> getListOfLearners() {
+    public ArrayList<String> getListOfLearners() {
         return listOfLearners;
     }
 
-    public void setListOfLearners(ArrayList<Learner> listOfLearners) {
+    public void setListOfLearners(ArrayList<String> listOfLearners) {
         this.listOfLearners = listOfLearners;
     }
 
@@ -111,5 +133,13 @@ public class Lesson {
 
     public void setTimeSlot(String timeSlot) {
         this.timeSlot = timeSlot;
+    }
+
+    public ArrayList<LessonHistory> getLogOfActions() {
+        return logOfActions;
+    }
+
+    public void setLogOfActions(ArrayList<LessonHistory> logOfActions) {
+        this.logOfActions = logOfActions;
     }
 }
