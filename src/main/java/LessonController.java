@@ -57,6 +57,34 @@ public class LessonController{
         return getMapOfLessons().get(ID);
     }
 
+    /**
+     * If the Lesson has capacity available it will append the Learner's ID as one of its Learners. Then it adds the action in its logs.
+     * @param inputLearnerID The ID of the Learner
+     */
+    public void bookLesson(Lesson lesson, String inputLearnerID) throws Exception {
+        if(lesson.getListOfLearners().contains(inputLearnerID)) throw new Exception("The learner has already booked this lesson!");
+
+        if(!lesson.hasAvailableSpot()) throw new Exception("The lesson is fully booked! You can not book a spot.");
+
+        lesson.getListOfLearners().add(inputLearnerID);
+        lesson.getLogOfActions().add(new LessonHistory(inputLearnerID, 0));
+    }
+
+    public void cancelLesson(Lesson lesson, String learnerID){
+        if(lesson.getListOfLearners().isEmpty()) {
+            return;
+        }
+        lesson.getListOfLearners().remove(learnerID);
+        lesson.getLogOfActions().add(new LessonHistory(learnerID, -1));
+    }
+
+    public void attendLesson(Lesson lesson, String learnerID, String comment){
+        if(lesson.getListOfLearners().isEmpty() || !lesson.getListOfLearners().contains(learnerID)){
+            return;
+        }
+        lesson.getLogOfActions().add(new LessonHistory(learnerID, 1, comment));
+    }
+
     public HashMap<String, Lesson> getMapOfLessons() {
         return mapOfLessons;
     }

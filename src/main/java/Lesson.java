@@ -61,34 +61,6 @@ public class Lesson {
     }
 
     /**
-     * If the Lesson has capacity available it will append the Learner's ID as one of its Learners. Then it adds the action in its logs.
-     * @param inputLearnerID The ID of the Learner
-     */
-    public void bookLesson(String inputLearnerID) throws Exception {
-        if(listOfLearners.contains(inputLearnerID)) throw new Exception("The learner has already booked this lesson!");
-
-        if(!hasAvailableSpot()) throw new Exception("The lesson is fully booked! You can not book a spot.");
-
-        listOfLearners.add(inputLearnerID);
-        logOfActions.add(new LessonHistory(inputLearnerID, 0));
-    }
-
-    public void cancelLesson(String learnerID){
-        if(getListOfLearners().isEmpty()) {
-            return;
-        }
-        getListOfLearners().remove(learnerID);
-        logOfActions.add(new LessonHistory(learnerID, -1));
-    }
-
-    public void attendLesson(String learnerID, String comment){
-        if(getListOfLearners().isEmpty() || !getListOfLearners().contains(learnerID)){
-            return;
-        }
-        logOfActions.add(new LessonHistory(learnerID, 1, comment));
-    }
-
-    /**
      *
      * @return Size of Learners
      */
