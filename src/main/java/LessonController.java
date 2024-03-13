@@ -74,8 +74,18 @@ public class LessonController{
         if(lesson.getListOfLearners().isEmpty()) {
             return;
         }
-        lesson.getListOfLearners().remove(learnerID);
-        lesson.getLogOfActions().add(new LessonEvent(key, learnerID, -1));
+        try {
+            if(hasLearnerBookedLesson(lesson, learnerID)) throw new Exception("The learner did not booked this lesson.");
+
+            if (getLastEventOfLearner(lesson, learnerID).getStatus() == 1) throw new Exception("You can not cancel an attended lesson.");
+
+            if(getLastEventOfLearner(lesson, learnerID).getStatus() == 0) {
+                lesson.getListOfLearners().remove(learnerID);
+                lesson.getLogOfActions().add(new LessonEvent(key, learnerID, -1));
+            }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     public void attendLesson(String key, Lesson lesson, String learnerID, String comment){
@@ -89,7 +99,7 @@ public class LessonController{
         if(learnerID.isEmpty()){
             throw new Exception("The learner has no records under this lesson.");
         }
-        LessonEvent lastLessonEvent = new LessonEvent();
+        LessonEvent lastLessonEvent = null;
         for(LessonEvent le : lesson.getLogOfActions()){
             if(le.getLearnerID().equals(learnerID)) lastLessonEvent = le;
         }
@@ -97,8 +107,12 @@ public class LessonController{
     }
 
     public void removeLearnerFromLesson(String learnerID, Lesson lesson) throws Exception {
-        if(!lesson.getListOfLearners().contains(learnerID)) throw new Exception("Learner did not book this lesson.");
-        lesson.getListOfLearners().remove(learnerID);
+        if(hasLearnerBookedLesson(lesson, learnerID)) lesson.getListOfLearners().remove(learnerID);
+    }
+
+    public boolean hasLearnerBookedLesson(Lesson lesson, String learnerID) throws Exception {
+        if(!lesson.getListOfLearners().contains(learnerID)) throw new Exception("The learner did not book this lesson.");
+        return true;
     }
 
     public HashMap<String, Lesson> getMapOfLessons() {
