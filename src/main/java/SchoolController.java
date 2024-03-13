@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class SchoolController {
 
     public LearnerController learnerController = new LearnerController();
     public LessonController lessonController = new LessonController();
+    private Key key = new Key();
+
 
     public void bookLearnerToLesson(Learner inputLearner, Lesson inputLesson) throws Exception {
         if(inputLearner == null || inputLesson == null){
@@ -15,22 +21,88 @@ public class SchoolController {
         learnerController.addNewLearner(inputLearner);
         lessonController.addNewLesson(inputLesson);
 
-        lessonController.bookLesson(lessonController.getLessonByID(inputLesson.getId()), inputLearner.getId());
+        lessonController.bookLesson(key.generateUniqueKey(),lessonController.getLessonByID(inputLesson.getId()), inputLearner.getId());
     }
 
     public void cancelLesson(Lesson lesson, String learnerID){
-        lessonController.cancelLesson(lesson, learnerID);
+        try {
+            lessonController.cancelLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     public void cancelLesson(String lessonID, String learnerID){
-        lessonController.cancelLesson(lessonController.getLessonByID(lessonID), learnerID);
+        try{
+            Lesson lesson = lessonController.getLessonByID(lessonID);
+            lessonController.cancelLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void attendLesson(Lesson lesson, String learnerID, String comment){
-        lessonController.attendLesson(lesson, learnerID, comment);
+    public void attendLesson(Lesson lesson, String learnerID, String comment) {
+        try {
+            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment);
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     public void attendLesson(String lessonID, String learnerID, String comment){
-        lessonController.attendLesson(lessonController.getLessonByID(lessonID), learnerID, comment);
+        try {
+            Lesson lesson = lessonController.getLessonByID(lessonID);
+            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment);
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void modifyBooking(String learnerID, Lesson previousLesson, Lesson newLesson){
+        String previousBookingID = "";
+        try{
+            previousBookingID = lessonController.getLastEventOfLearner(previousLesson, learnerID).getID();
+            lessonController.bookLesson(lessonController.getLastEventOfLearner(previousLesson,learnerID).getID(), newLesson, learnerID);
+            lessonController.cancelLesson("EXPIRED", previousLesson, learnerID);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            try {
+                lessonController.bookLesson(previousBookingID, previousLesson, learnerID);
+                lessonController.cancelLesson("ABORT", newLesson, learnerID);
+            }catch(Exception e2){
+                System.err.println(e2.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Gets the list of all lessons the learner has a valid booking or previous attendance.
+     * @param learnerID The learner's ID
+     * @return List of lessons
+     */
+    public List<Lesson> getLearnerLessonsList(String learnerID){
+        List<Lesson> lessonList = new ArrayList<Lesson>();
+        for(Map.Entry<String, Lesson> entry : getLessonController().getMapOfLessons().entrySet()){
+            if(entry.getValue().getListOfLearners().contains(learnerID)){
+                lessonList.add(entry.getValue());
+            }
+        }
+        return lessonList;
+    }
+
+    public LearnerController getLearnerController() {
+        return learnerController;
+    }
+
+    public void setLearnerController(LearnerController learnerController) {
+        this.learnerController = learnerController;
+    }
+
+    public LessonController getLessonController() {
+        return lessonController;
+    }
+
+    public void setLessonController(LessonController lessonController) {
+        this.lessonController = lessonController;
     }
 }

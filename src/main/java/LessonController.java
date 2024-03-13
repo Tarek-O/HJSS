@@ -61,28 +61,44 @@ public class LessonController{
      * If the Lesson has capacity available it will append the Learner's ID as one of its Learners. Then it adds the action in its logs.
      * @param inputLearnerID The ID of the Learner
      */
-    public void bookLesson(Lesson lesson, String inputLearnerID) throws Exception {
+    public void bookLesson(String key, Lesson lesson, String inputLearnerID) throws Exception {
         if(lesson.getListOfLearners().contains(inputLearnerID)) throw new Exception("The learner has already booked this lesson!");
 
         if(!lesson.hasAvailableSpot()) throw new Exception("The lesson is fully booked! You can not book a spot.");
 
         lesson.getListOfLearners().add(inputLearnerID);
-        lesson.getLogOfActions().add(new LessonHistory(inputLearnerID, 0));
+        lesson.getLogOfActions().add(new LessonEvent(key, inputLearnerID, 0));
     }
 
-    public void cancelLesson(Lesson lesson, String learnerID){
+    public void cancelLesson(String key, Lesson lesson, String learnerID){
         if(lesson.getListOfLearners().isEmpty()) {
             return;
         }
         lesson.getListOfLearners().remove(learnerID);
-        lesson.getLogOfActions().add(new LessonHistory(learnerID, -1));
+        lesson.getLogOfActions().add(new LessonEvent(key, learnerID, -1));
     }
 
-    public void attendLesson(Lesson lesson, String learnerID, String comment){
+    public void attendLesson(String key, Lesson lesson, String learnerID, String comment){
         if(lesson.getListOfLearners().isEmpty() || !lesson.getListOfLearners().contains(learnerID)){
             return;
         }
-        lesson.getLogOfActions().add(new LessonHistory(learnerID, 1, comment));
+        lesson.getLogOfActions().add(new LessonEvent(key, learnerID, 1, comment));
+    }
+
+    public LessonEvent getLastEventOfLearner(Lesson lesson, String learnerID) throws Exception {
+        if(learnerID.isEmpty()){
+            throw new Exception("The learner has no records under this lesson.");
+        }
+        LessonEvent lastLessonEvent = new LessonEvent();
+        for(LessonEvent le : lesson.getLogOfActions()){
+            if(le.getLearnerID().equals(learnerID)) lastLessonEvent = le;
+        }
+        return lastLessonEvent;
+    }
+
+    public void removeLearnerFromLesson(String learnerID, Lesson lesson) throws Exception {
+        if(!lesson.getListOfLearners().contains(learnerID)) throw new Exception("Learner did not book this lesson.");
+        lesson.getListOfLearners().remove(learnerID);
     }
 
     public HashMap<String, Lesson> getMapOfLessons() {

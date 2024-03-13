@@ -10,7 +10,7 @@ public class Lesson {
     private int gradeLevel;
     private String timeSlot;
     private ArrayList<String> listOfLearners;
-    private ArrayList<LessonHistory> logOfActions;
+    private ArrayList<LessonEvent> logOfActions;
 
     /**
      * Constructor for Lesson where the ID is automatically generated based on input.
@@ -25,7 +25,7 @@ public class Lesson {
         setTimeSlot(timeSlot);
         setListOfLearners(listOfLearners);
         setId(generateLessonID());
-        logOfActions = new ArrayList<LessonHistory>();
+        logOfActions = new ArrayList<LessonEvent>();
     }
 
     /**
@@ -40,7 +40,7 @@ public class Lesson {
         setTimeSlot(timeSlot);
         listOfLearners = new ArrayList<String>();
         setId(generateLessonID());
-        logOfActions = new ArrayList<LessonHistory>();
+        logOfActions = new ArrayList<LessonEvent>();
     }
 
     /**
@@ -108,11 +108,11 @@ public class Lesson {
         this.timeSlot = timeSlot;
     }
 
-    public ArrayList<LessonHistory> getLogOfActions() {
+    public ArrayList<LessonEvent> getLogOfActions() {
         return logOfActions;
     }
 
-    public void setLogOfActions(ArrayList<LessonHistory> logOfActions) {
+    public void setLogOfActions(ArrayList<LessonEvent> logOfActions) {
         this.logOfActions = logOfActions;
     }
 }

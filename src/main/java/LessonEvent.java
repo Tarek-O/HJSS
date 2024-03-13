@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
-public class LessonHistory {
+public class LessonEvent {
 
+    private String ID;
     private String learnerID;
     private LocalDate dateOfRecord;
     private int status;
@@ -12,18 +13,22 @@ public class LessonHistory {
      * @param learnerID
      * @param status The status should be set as -1 for canceled, 0 for booked and 1 for attended.
      */
-    public LessonHistory(String learnerID, int status) {
+    public LessonEvent(String key, String learnerID, int status) {
+        setID(key);
         setLearnerID(learnerID);
         dateOfRecord = LocalDate.now();
         setStatus(status);
     }
 
-    public LessonHistory(String learnerID, int status, String comment) {
+    public LessonEvent(String key, String learnerID, int status, String comment) {
+        setID(key);
         setLearnerID(learnerID);
         dateOfRecord = LocalDate.now();
         setStatus(status);
         setComment(comment);
     }
+
+    public LessonEvent(){};
 
     public String getLearnerID() {
         return learnerID;
@@ -55,5 +60,18 @@ public class LessonHistory {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        if(ID == null || ID.isEmpty()) return;
+        if(ID.startsWith("BREF_")) {
+            this.ID = ID;
+            return;
+        }
+        this.ID = "BREF_" + ID;
     }
 }
