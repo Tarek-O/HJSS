@@ -57,12 +57,30 @@ public class LearnerController {
         return false;
     }
 
+    public Learner getLearnerByID(String learnerID){
+        try{
+            for(Learner le : arrayOfLearners){
+                if(le.getId().equals(learnerID)) return le;
+            }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
     public double getLearnerAge(Learner learner){
         return Period.between(learner.getBirthDate(), LocalDate.now()).getYears();
     }
 
     public double getLearnerAgeWhen(Learner learner, LocalDate dateThen){
         return Period.between(learner.getBirthDate(), dateThen).getYears();
+    }
+
+    public void incrementLearnerGrade(Learner learner){
+        if(learner.getGradeLevel() == 5){
+            return;
+        }
+        learner.setGradeLevel(learner.getGradeLevel() + 1);
     }
 
     public ArrayList<Learner> getArrayOfLearners() {

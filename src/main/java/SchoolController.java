@@ -43,12 +43,22 @@ public class SchoolController {
 
     public void attendLesson(Lesson lesson, String learnerID, String comment, int rating) throws Exception {
         lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
+
+        Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
+        if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
+            learnerController.incrementLearnerGrade(tempLearnerObject);
+        }
     }
 
     public void attendLesson(String lessonID, String learnerID, String comment, int rating){
         try {
             Lesson lesson = lessonController.getLessonByID(lessonID);
             lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
+
+            Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
+            if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
+                learnerController.incrementLearnerGrade(tempLearnerObject);
+            }
         }catch(Exception e){
             System.err.println(e.getMessage());
         }

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Refactored timeSlot to LocalTime instead of String">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Refactored Learner age calculation into controller instead of object itself">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LearnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,7 @@
       <workItem from="1709911585194" duration="17918000" />
       <workItem from="1710189608068" duration="11294000" />
       <workItem from="1710320630919" duration="21688000" />
-      <workItem from="1710462314596" duration="3714000" />
+      <workItem from="1710462314596" duration="5431000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -263,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710523282083</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Refactored Learner age calculation into controller instead of object itself">
+      <option name="closed" value="true" />
+      <created>1710524180193</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710524180193</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +293,8 @@
     <MESSAGE value="Handled case where learner can cancel an attended lesson" />
     <MESSAGE value="Added numeric rating for attended classes" />
     <MESSAGE value="Refactored timeSlot to LocalTime instead of String" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored timeSlot to LocalTime instead of String" />
+    <MESSAGE value="Refactored Learner age calculation into controller instead of object itself" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Learner age calculation into controller instead of object itself" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
