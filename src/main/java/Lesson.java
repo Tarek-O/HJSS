@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Lesson {
@@ -8,7 +9,8 @@ public class Lesson {
     private String id;
     private LocalDate dateOfLesson;
     private int gradeLevel;
-    private String timeSlot;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private ArrayList<String> listOfLearners;
     private ArrayList<LessonEvent> logOfActions;
 
@@ -16,13 +18,15 @@ public class Lesson {
      * Constructor for Lesson where the ID is automatically generated based on input.
      * @param dateOfLesson Date of when the Lesson will occur
      * @param gradeLevel The grade level of which this Lesson is
-     * @param timeSlot The time slot of the Lesson
+     * @param startTime The time slot of the Lesson
+     * @param endTime The time slot of the Lesson
      * @param listOfLearners An array of String consisting of the IDs of the Learners
      */
-    public Lesson(LocalDate dateOfLesson, int gradeLevel, String timeSlot, ArrayList<String> listOfLearners){
+    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime, ArrayList<String> listOfLearners){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
-        setTimeSlot(timeSlot);
+        setStartTime(startTime);
+        setEndTime(endTime);
         setListOfLearners(listOfLearners);
         setId(generateLessonID());
         logOfActions = new ArrayList<LessonEvent>();
@@ -32,12 +36,14 @@ public class Lesson {
      * Constructor for Lesson where the ID is automatically generated based on input.
      * @param dateOfLesson Date of when the Lesson will occur
      * @param gradeLevel The grade level of which this Lesson is
-     * @param timeSlot The time slot of the Lesson
+     * @param startTime The time slot of the Lesson
+     * @param endTime The time slot of the Lesson
      */
-    public Lesson(LocalDate dateOfLesson, int gradeLevel, String timeSlot){
+    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
-        setTimeSlot(timeSlot);
+        setStartTime(startTime);
+        setEndTime(endTime);
         listOfLearners = new ArrayList<String>();
         setId(generateLessonID());
         logOfActions = new ArrayList<LessonEvent>();
@@ -57,7 +63,7 @@ public class Lesson {
      * @return ID of Lesson
      */
     public String generateLessonID(){
-        return getGradeLevel() + "GR" + getTimeSlot() + getDateOfLesson().getDayOfWeek().toString().substring(0,3).toUpperCase() + String.format("%02d", getDateOfLesson().getDayOfMonth()) + getDateOfLesson().getMonth().toString().substring(0,3).toUpperCase()  + (getDateOfLesson().getYear()%100);
+        return getGradeLevel() + "GR" + String.format("%02d",startTime.getHour()) + getDateOfLesson().getDayOfWeek().toString().substring(0,3).toUpperCase() + String.format("%02d", getDateOfLesson().getDayOfMonth()) + getDateOfLesson().getMonth().toString().substring(0,3).toUpperCase()  + (getDateOfLesson().getYear()%100);
     }
 
     /**
@@ -100,19 +106,27 @@ public class Lesson {
         this.id = id;
     }
 
-    public String getTimeSlot() {
-        return timeSlot;
-    }
-
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
-    }
-
     public ArrayList<LessonEvent> getLogOfActions() {
         return logOfActions;
     }
 
     public void setLogOfActions(ArrayList<LessonEvent> logOfActions) {
         this.logOfActions = logOfActions;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 }
