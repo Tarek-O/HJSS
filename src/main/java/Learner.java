@@ -1,8 +1,4 @@
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.util.Date;
 
 public class Learner {
 
@@ -42,26 +38,6 @@ public class Learner {
         }else{
             throw new Exception("Phone number entered is not a valid UK Phone Number.");
         }
-    }
-
-    /**
-     * The age of the learner as of the moment the method is called.
-     *
-     * @param
-     * @return
-     */
-    public int calculateAgeNow(){
-        return Period.between(birthDate, LocalDate.now()).getYears();
-    }
-
-    /**
-     * The age of the learner of when they will potentially attend an event at a specific date.
-     *
-     * @param dateThen
-     * @return age as a double
-     */
-    public int calculateAgeWhen(LocalDate dateThen){
-        return Period.between(birthDate, dateThen).getYears();
     }
 
     public String getName() {
