@@ -76,13 +76,6 @@ public class LearnerController {
         return Period.between(learner.getBirthDate(), dateThen).getYears();
     }
 
-    public void incrementLearnerGrade(Learner learner){
-        if(learner.getGradeLevel() == 5){
-            return;
-        }
-        learner.setGradeLevel(learner.getGradeLevel() + 1);
-    }
-
     public ArrayList<Learner> getArrayOfLearners() {
         return arrayOfLearners;
     }

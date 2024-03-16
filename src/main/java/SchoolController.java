@@ -46,7 +46,7 @@ public class SchoolController {
 
         Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
         if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
-            learnerController.incrementLearnerGrade(tempLearnerObject);
+            incrementLearnerGrade(tempLearnerObject);
         }
     }
 
@@ -57,8 +57,9 @@ public class SchoolController {
 
             Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
             if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
-                learnerController.incrementLearnerGrade(tempLearnerObject);
+                incrementLearnerGrade(tempLearnerObject);
             }
+
         }catch(Exception e){
             System.err.println(e.getMessage());
         }
@@ -94,6 +95,18 @@ public class SchoolController {
             }
         }
         return lessonList;
+    }
+
+    public void incrementLearnerGrade(Learner learner){
+        if(learner.getGradeLevel() == 5){
+            return;
+        }
+
+        if(learner.getGradeLevel() > 5){
+            learner.setGradeLevel(5);
+            return;
+        }
+        learner.setGradeLevel(learner.getGradeLevel() + 1);
     }
 
     public LearnerController getLearnerController() {
