@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,18 @@ public class SchoolController {
     private Key key = new Key();
 
 
+    SchoolController(){}
+    SchoolController(LearnerController learnerController, LessonController lessonController){
+        setLearnerController(learnerController);
+        setLessonController(lessonController);
+    }
+    SchoolController(LearnerController learnerController){
+        setLearnerController(learnerController);
+    }
+    SchoolController(LessonController lessonController){
+        setLessonController(lessonController);
+    }
+
     public void bookLearnerToLesson(Learner inputLearner, Lesson inputLesson) throws Exception {
         if(inputLearner == null || inputLesson == null){
             return;
@@ -18,7 +32,7 @@ public class SchoolController {
             throw new Exception("The learner is ineligible to book the lesson due to the grade level restriction. Lesson's grade is " + inputLesson.getGradeLevel() + " while the learner is a grade " + inputLearner.getGradeLevel() + " swimmer.");
         }
 
-        learnerController.addNewLearner(inputLearner);
+        addNewLearner(inputLearner);
         lessonController.addNewLesson(inputLesson);
 
         lessonController.bookLesson(key.generateUniqueKey(),lessonController.getLessonByID(inputLesson.getId()), inputLearner.getId());
@@ -107,6 +121,34 @@ public class SchoolController {
             return;
         }
         learner.setGradeLevel(learner.getGradeLevel() + 1);
+    }
+
+    public void addNewLearner(Learner learner) throws Exception {
+        if(learner.getGradeLevel() > 5 || learner.getGradeLevel() < 1) throw new Exception("Learner's grade does not match this school's grades list!");
+        if(!isLearnerAgeValid(learner, LocalDate.now())) throw new Exception("Learner's age does not match this school's registering age policy!");
+        learnerController.addNewLearner(learner);
+    }
+
+    /**
+     * The age of the learner of when they will potentially attend an event at a specific date.
+     *
+     * @param dateThen The date you want to validate
+     * @return Age as a double
+     */
+    public boolean isLearnerAgeValid(Learner learner, LocalDate dateThen){
+        double age = getLearnerAgeWhen(learner, dateThen);
+        if(age >= 4 && age <= 11){
+            return true;
+        }
+        return false;
+    }
+
+    public double getLearnerAge(Learner learner){
+        return Period.between(learner.getBirthDate(), LocalDate.now()).getYears();
+    }
+
+    public double getLearnerAgeWhen(Learner learner, LocalDate dateThen){
+        return Period.between(learner.getBirthDate(), dateThen).getYears();
     }
 
     public LearnerController getLearnerController() {

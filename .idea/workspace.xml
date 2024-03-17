@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added grade promotion functionality">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added grade promotion">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
@@ -60,7 +60,7 @@
     "Application.Controller.executor": "Run",
     "Application.Learner.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.temp.executor": "Debug",
+    "Application.temp.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -125,7 +125,7 @@
       <workItem from="1709911585194" duration="17918000" />
       <workItem from="1710189608068" duration="11294000" />
       <workItem from="1710320630919" duration="21688000" />
-      <workItem from="1710462314596" duration="9504000" />
+      <workItem from="1710462314596" duration="12929000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -279,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710536432089</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added grade promotion">
+      <option name="closed" value="true" />
+      <created>1710624173065</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1710624173065</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,29 +311,30 @@
     <MESSAGE value="Refactored timeSlot to LocalTime instead of String" />
     <MESSAGE value="Refactored Learner age calculation into controller instead of object itself" />
     <MESSAGE value="Added grade promotion functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added grade promotion functionality" />
+    <MESSAGE value="Added grade promotion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added grade promotion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>97</line>
+          <line>101</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>102</line>
+          <line>106</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>112</line>
+          <line>116</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>117</line>
+          <line>121</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>

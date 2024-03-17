@@ -43,20 +43,6 @@ public class LearnerController {
         arrayOfLearners.remove(remLearner);
     }
 
-    /**
-     * The age of the learner of when they will potentially attend an event at a specific date.
-     *
-     * @param dateThen The date you want to validate
-     * @return Age as a double
-     */
-    public boolean isLearnerAgeValid(Learner learner, LocalDate dateThen){
-        double age = getLearnerAgeWhen(learner, dateThen);
-        if(age >= 4 && age <= 11){
-            return true;
-        }
-        return false;
-    }
-
     public Learner getLearnerByID(String learnerID){
         try{
             for(Learner le : arrayOfLearners){
@@ -66,14 +52,6 @@ public class LearnerController {
             System.err.println(e.getMessage());
         }
         return null;
-    }
-
-    public double getLearnerAge(Learner learner){
-        return Period.between(learner.getBirthDate(), LocalDate.now()).getYears();
-    }
-
-    public double getLearnerAgeWhen(Learner learner, LocalDate dateThen){
-        return Period.between(learner.getBirthDate(), dateThen).getYears();
     }
 
     public ArrayList<Learner> getArrayOfLearners() {
