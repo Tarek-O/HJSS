@@ -35,7 +35,7 @@ public class SchoolController {
         }
 
         addNewLearner(inputLearner);
-        lessonController.addNewLesson(inputLesson);
+        addNewLesson(inputLesson);
 
         lessonController.bookLesson(key.generateUniqueKey(),lessonController.getLessonByID(inputLesson.getId()), inputLearner.getId());
     }
@@ -184,6 +184,4 @@ public class SchoolController {
     public void setLessonController(LessonController lessonController) {
         this.lessonController = lessonController;
     }
-
-
 }
