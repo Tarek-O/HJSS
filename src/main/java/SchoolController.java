@@ -1,16 +1,18 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class SchoolController {
 
-    public LearnerController learnerController = new LearnerController();
-    public LessonController lessonController = new LessonController();
+    private LearnerController learnerController = new LearnerController();
+    private LessonController lessonController = new LessonController();
     private Key key = new Key();
-
-
+    private final double maxHoursPerClass = 1;
+    private final int maxNumberOfLearnerPerClass = 4;
     SchoolController(){}
     SchoolController(LearnerController learnerController, LessonController lessonController){
         setLearnerController(learnerController);
@@ -56,11 +58,15 @@ public class SchoolController {
     }
 
     public void attendLesson(Lesson lesson, String learnerID, String comment, int rating) throws Exception {
-        lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
+        try {
+            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
 
-        Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
-        if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
-            incrementLearnerGrade(tempLearnerObject);
+            Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
+            if (lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1) {
+                incrementLearnerGrade(tempLearnerObject);
+            }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
         }
     }
 
@@ -124,11 +130,19 @@ public class SchoolController {
     }
 
     public void addNewLearner(Learner learner) throws Exception {
+        if(learner == null) throw new Exception("Invalid learner entry.");
         if(learner.getGradeLevel() > 5 || learner.getGradeLevel() < 1) throw new Exception("Learner's grade does not match this school's grades list!");
         if(!isLearnerAgeValid(learner, LocalDate.now())) throw new Exception("Learner's age does not match this school's registering age policy!");
         learnerController.addNewLearner(learner);
     }
 
+    public void addNewLesson(Lesson lesson) throws Exception{
+        if(lesson == null) throw new Exception("Invalid lesson entry.");
+        if(lesson.getGradeLevel() > 5 || lesson.getGradeLevel() < 1) throw new Exception("Lesson's grade does not match this school's grades list!");
+        if(lesson.getNumberOfLearners() > maxNumberOfLearnerPerClass) throw new Exception("This lesson does not match this school's learner capacity. We expect 4 learners per lesson.");
+        if(getHoursBetween(lesson.getStartTime(), lesson.getEndTime()) > maxHoursPerClass) throw new Exception("The lesson is more than " + maxHoursPerClass + " hours.");
+        lessonController.addNewLesson(lesson);
+    }
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
      *
@@ -151,6 +165,10 @@ public class SchoolController {
         return Period.between(learner.getBirthDate(), dateThen).getYears();
     }
 
+    public double getHoursBetween(LocalTime firstInput, LocalTime secondInput){
+        return (double) firstInput.until(secondInput, ChronoUnit.MINUTES)/60;
+    }
+
     public LearnerController getLearnerController() {
         return learnerController;
     }
@@ -166,4 +184,6 @@ public class SchoolController {
     public void setLessonController(LessonController lessonController) {
         this.lessonController = lessonController;
     }
+
+
 }
