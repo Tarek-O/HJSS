@@ -74,12 +74,12 @@ public class LessonController{
         if(lesson.getListOfLearners().isEmpty()) {
             return;
         }
-
         if(!hasLearnerBookedLesson(lesson, learnerID)) throw new Exception("The learner did not book this lesson.");
-        if (getLastEventOfLearner(lesson, learnerID).getStatus() == -1) throw new Exception("You can not cancel a previously canceled lesson.");
-        if (getLastEventOfLearner(lesson, learnerID).getStatus() == 1) throw new Exception("You can not cancel an attended lesson.");
 
-        if(getLastEventOfLearner(lesson, learnerID).getStatus() == 0) {
+        LessonEvent event = getLastEventOfLearner(lesson, learnerID);
+        if (event.getStatus() == -1) throw new Exception("You can not cancel a previously canceled lesson.");
+        if (event.getStatus() == 1) throw new Exception("You can not cancel an attended lesson.");
+        if(event.getStatus() == 0) {
             lesson.getListOfLearners().remove(learnerID);
             lesson.getLogOfActions().add(new LessonEvent(key, learnerID, -1));
         }
@@ -100,6 +100,7 @@ public class LessonController{
         for(LessonEvent le : lesson.getLogOfActions()){
             if(le.getLearnerID().equals(learnerID)) lastLessonEvent = le;
         }
+        if(lastLessonEvent == null) throw new Exception("The learner has no records under this lesson.");
         return lastLessonEvent;
     }
 
