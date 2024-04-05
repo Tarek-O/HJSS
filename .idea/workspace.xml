@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added getLessonsByMonth, getAllCoachReport, getLearnerHistory, Coach and some refactoring">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added getLessonsByGrade">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
@@ -168,7 +168,8 @@
       <workItem from="1711500638436" duration="26000" />
       <workItem from="1712238897008" duration="3440000" />
       <workItem from="1712322749299" duration="9643000" />
-      <workItem from="1712355339468" duration="324000" />
+      <workItem from="1712355339468" duration="554000" />
+      <workItem from="1712356025079" duration="567000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -394,14 +395,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712331454614</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added getLessonsByGrade">
+      <option name="closed" value="true" />
+      <created>1712355732142</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712355732142</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initializing files" />
     <MESSAGE value="Adding test class for practice" />
     <MESSAGE value="Fixing last commit's message. Adding calculate age function." />
     <MESSAGE value="Added generate ID using the object's fields and refactored constructors accordingly. Removed redundant methods of getting day and month." />
@@ -426,7 +434,8 @@
     <MESSAGE value="Fixed attend lesson and add new learner. Added new lesson method" />
     <MESSAGE value="Fixed refactoring issue" />
     <MESSAGE value="Added getLessonsByMonth, getAllCoachReport, getLearnerHistory, Coach and some refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getLessonsByMonth, getAllCoachReport, getLearnerHistory, Coach and some refactoring" />
+    <MESSAGE value="Added getLessonsByGrade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getLessonsByGrade" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

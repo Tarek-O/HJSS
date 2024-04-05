@@ -215,6 +215,16 @@ public class LessonController{
         return listOfLessonsByGrade;
     }
 
+    public List<Lesson> getLessonsByDayName(String dayName){
+        String dayNameAbbrev = dayName.substring(0,3).toUpperCase();
+        List<Lesson> listOfLessonsByDayName = new ArrayList<>();
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
+            String entryDayName = entry.getKey().substring(entry.getKey().toString().indexOf("GR") + 4, entry.getKey().toString().indexOf("GR") + 7).toUpperCase();
+            if(entryDayName.equals(dayNameAbbrev)) listOfLessonsByDayName.add(entry.getValue());
+        }
+        return listOfLessonsByDayName;
+    }
+
     public void removeLearnerFromLesson(String lessonId, String learnerID) throws Exception {
         Lesson lesson = getLessonByID(lessonId);
         if(hasLearnerBookedLesson(lesson.getId(), learnerID) && !hasLearnerAttendedOrCanceledLesson(lesson.getId(), learnerID))

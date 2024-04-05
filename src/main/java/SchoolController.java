@@ -134,6 +134,10 @@ public class SchoolController {
         return lessonController.getLessonsByGrade(gradeLevel);
     }
 
+    public List<Lesson> getLessonsByDayName(String dayName){
+        return lessonController.getLessonsByDayName(dayName);
+    }
+
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
      *
