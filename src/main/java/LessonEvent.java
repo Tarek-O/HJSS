@@ -2,6 +2,7 @@ import java.time.LocalDate;
 
 public class LessonEvent {
 
+
     private String ID;
     private String learnerID;
     private LocalDate dateOfRecord;
