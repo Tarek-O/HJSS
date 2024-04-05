@@ -126,6 +126,14 @@ public class SchoolController {
     public HashMap<String, Double> getAllCoachReport(){
         return lessonController.getAllCoachReport();
     }
+
+    public List<Lesson> getLessonsByMonth(int numberOfMonth, int year){
+        return lessonController.getLessonsByMonth(numberOfMonth, year);
+    }
+    public List<Lesson> getLessonsByGrade(int gradeLevel){
+        return lessonController.getLessonsByGrade(gradeLevel);
+    }
+
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
      *

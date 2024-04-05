@@ -207,6 +207,14 @@ public class LessonController{
         return listOfLessonsByMonth;
     }
 
+    public List<Lesson> getLessonsByGrade(int gradeLevel){
+        List<Lesson> listOfLessonsByGrade = new ArrayList<>();
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
+            if(entry.getKey().startsWith(gradeLevel + "GR")) listOfLessonsByGrade.add(entry.getValue());
+        }
+        return listOfLessonsByGrade;
+    }
+
     public void removeLearnerFromLesson(String lessonId, String learnerID) throws Exception {
         Lesson lesson = getLessonByID(lessonId);
         if(hasLearnerBookedLesson(lesson.getId(), learnerID) && !hasLearnerAttendedOrCanceledLesson(lesson.getId(), learnerID))
