@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added grade promotion">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Fixed refactoring issue">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LearnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LessonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +26,13 @@
       <list>
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
     </option>
   </component>
   <component name="Git.Settings">
@@ -39,6 +50,13 @@
         <option name="accountId" value="c16eb366-4181-4519-a5a0-4bd7c6332bbf" />
         <option name="url" value="https://github.com/Tarek-O/HJSS.git" />
       </UrlAndAccount>
+    </option>
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
     </option>
   </component>
   <component name="ProblemsViewState">
@@ -61,10 +79,18 @@
     "Application.Learner.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.temp.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.test.test.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework",
     "node.js.detected.package.eslint": "true",
@@ -73,10 +99,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "JavaScript.Libraries",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,9 +122,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.temp" />
+        <item itemvalue="JUnit.test.test" />
         <item itemvalue="Application.LessonController" />
       </list>
     </recent_temporary>
@@ -125,7 +163,13 @@
       <workItem from="1709911585194" duration="17918000" />
       <workItem from="1710189608068" duration="11294000" />
       <workItem from="1710320630919" duration="21688000" />
-      <workItem from="1710462314596" duration="12929000" />
+      <workItem from="1710462314596" duration="14391000" />
+      <workItem from="1710929099605" duration="9366000" />
+      <workItem from="1711326452197" duration="1348000" />
+      <workItem from="1711376913911" duration="7054000" />
+      <workItem from="1711500638436" duration="26000" />
+      <workItem from="1712238897008" duration="3440000" />
+      <workItem from="1712322749299" duration="8382000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -287,7 +331,55 @@
       <option name="project" value="LOCAL" />
       <updated>1710624173065</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Refactored add new learner">
+      <option name="closed" value="true" />
+      <created>1710638870319</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710638870319</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fixed a bug in cancelLesson">
+      <option name="closed" value="true" />
+      <created>1710930148102</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1710930148102</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Refactored cancelLesson and getLastEventOfLearner to handle exception">
+      <option name="closed" value="true" />
+      <created>1710930592963</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1710930592963</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added JUnit dependency">
+      <option name="closed" value="true" />
+      <created>1710931414899</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710931414899</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Fixed attend lesson and add new learner. Added new lesson method">
+      <option name="closed" value="true" />
+      <created>1710936413918</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710936413918</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Fixed refactoring issue">
+      <option name="closed" value="true" />
+      <created>1710937396130</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710937396130</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,37 +404,35 @@
     <MESSAGE value="Refactored Learner age calculation into controller instead of object itself" />
     <MESSAGE value="Added grade promotion functionality" />
     <MESSAGE value="Added grade promotion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added grade promotion" />
+    <MESSAGE value="Refactored add new learner" />
+    <MESSAGE value="Fixed a bug in cancelLesson" />
+    <MESSAGE value="Refactored cancelLesson and getLastEventOfLearner to handle exception" />
+    <MESSAGE value="Added JUnit dependency" />
+    <MESSAGE value="Fixed attend lesson and add new learner. Added new lesson method" />
+    <MESSAGE value="Fixed refactoring issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed refactoring issue" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Lesson" memberName="endTime" />
+        <PinnedItemInfo parentTag="Lesson" memberName="startTime" />
+        <PinnedItemInfo parentTag="Lesson" memberName="maxNumberOfLearners" />
         <PinnedItemInfo parentTag="Lesson" memberName="listOfLearners" />
+        <PinnedItemInfo parentTag="Lesson" memberName="dateOfLesson" />
+        <PinnedItemInfo parentTag="LessonController" memberName="mapOfLessons" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="les4" />
+        <watch expression="les3.logOfActions" />
+        <watch expression="((Lesson)((HashMap.Node)lessonController.mapOfLessons.entrySet().toArray()[0]).getValue()).logOfActions.get(0)" custom="java.util.HashMap.Node,Lesson" />
+        <watch expression="((Lesson)((HashMap.Node)lessonController.mapOfLessons.entrySet().toArray()[0]).getValue()).logOfActions.get(0)" custom="java.util.HashMap.Node,Lesson" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

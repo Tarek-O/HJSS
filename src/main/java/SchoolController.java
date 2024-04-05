@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ public class SchoolController {
 
     private LearnerController learnerController = new LearnerController();
     private LessonController lessonController = new LessonController();
+    private ArrayList<String> listOfCoaches = new ArrayList<String>();
     private Key key = new Key();
     private final double maxHoursPerClass = 1;
     private final int maxNumberOfLearnerPerClass = 4;
@@ -37,43 +39,23 @@ public class SchoolController {
         addNewLearner(inputLearner);
         addNewLesson(inputLesson);
 
-        lessonController.bookLesson(key.generateUniqueKey(),lessonController.getLessonByID(inputLesson.getId()), inputLearner.getId());
+        lessonController.bookLesson(key.generateUniqueKey(),inputLesson.getId(), inputLearner.getId(), inputLesson.getCoachName());
     }
 
-    public void cancelLesson(Lesson lesson, String learnerID){
+    public void cancelLesson(String lessonId, String learnerID){
         try {
-            lessonController.cancelLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID);
+            Lesson lesson = lessonController.getLessonByID(lessonId);
+            lessonController.cancelLesson(lessonController.getLastEventOfLearner(lessonId, learnerID).getID(), lesson, learnerID, lesson.getCoachName());
         }catch (Exception e){
             System.err.println(e.getMessage());
         }
     }
 
-    public void cancelLesson(String lessonID, String learnerID){
-        try{
-            Lesson lesson = lessonController.getLessonByID(lessonID);
-            lessonController.cancelLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID);
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
-    }
-
-    public void attendLesson(Lesson lesson, String learnerID, String comment, int rating) throws Exception {
-        try {
-            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
-
-            Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
-            if (lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1) {
-                incrementLearnerGrade(tempLearnerObject);
-            }
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
-    }
 
     public void attendLesson(String lessonID, String learnerID, String comment, int rating){
         try {
             Lesson lesson = lessonController.getLessonByID(lessonID);
-            lessonController.attendLesson(lessonController.getLastEventOfLearner(lesson, learnerID).getID(), lesson, learnerID, comment, rating);
+            lessonController.attendLesson(lessonController.getLastEventOfLearner(lessonID, learnerID).getID(), lesson, learnerID, comment, rating, lesson.getCoachName());
 
             Learner tempLearnerObject = learnerController.getLearnerByID(learnerID);
             if(lesson.getGradeLevel() == tempLearnerObject.getGradeLevel() + 1){
@@ -88,33 +70,25 @@ public class SchoolController {
     public void modifyBooking(String learnerID, Lesson previousLesson, Lesson newLesson){
         String previousBookingID = "";
         try{
-            previousBookingID = lessonController.getLastEventOfLearner(previousLesson, learnerID).getID();
-            lessonController.bookLesson(lessonController.getLastEventOfLearner(previousLesson,learnerID).getID(), newLesson, learnerID);
-            lessonController.cancelLesson("EXPIRED", previousLesson, learnerID);
+            previousBookingID = lessonController.getLastEventOfLearner(previousLesson.getId(), learnerID).getID();
+            lessonController.bookLesson(lessonController.getLastEventOfLearner(previousLesson.getId(),learnerID).getID(), newLesson.getId(), learnerID, newLesson.getCoachName());
+            lessonController.cancelLesson("EXPIRED", previousLesson, learnerID, previousLesson.getCoachName());
         }catch (Exception e){
             System.err.println(e.getMessage());
             try {
-                lessonController.bookLesson(previousBookingID, previousLesson, learnerID);
-                lessonController.cancelLesson("ABORT", newLesson, learnerID);
-            }catch(Exception e2){
-                System.err.println(e2.getMessage());
-            }
+                lessonController.bookLesson(previousBookingID, previousLesson.getId(), learnerID, previousLesson.getCoachName());
+                lessonController.cancelLesson("ABORT", newLesson, learnerID, newLesson.getCoachName());
+            }catch(Exception e2){}
         }
     }
 
-    /**
-     * Gets the list of all lessons the learner has a valid booking or previous attendance.
-     * @param learnerID The learner's ID
-     * @return List of lessons
-     */
+
     public List<Lesson> getLearnerLessonsList(String learnerID){
-        List<Lesson> lessonList = new ArrayList<Lesson>();
-        for(Map.Entry<String, Lesson> entry : getLessonController().getMapOfLessons().entrySet()){
-            if(entry.getValue().getListOfLearners().contains(learnerID)){
-                lessonList.add(entry.getValue());
-            }
-        }
-        return lessonList;
+        return lessonController.getLearnerLessonsList(learnerID);
+    }
+
+    public List<Lesson> getListOfLessonsByCoach(String coachName){
+        return lessonController.getListOfLessonsByCoach(coachName);
     }
 
     public void incrementLearnerGrade(Learner learner){
@@ -142,6 +116,15 @@ public class SchoolController {
         if(lesson.getNumberOfLearners() > maxNumberOfLearnerPerClass) throw new Exception("This lesson does not match this school's learner capacity. We expect 4 learners per lesson.");
         if(getHoursBetween(lesson.getStartTime(), lesson.getEndTime()) > maxHoursPerClass) throw new Exception("The lesson is more than " + maxHoursPerClass + " hours.");
         lessonController.addNewLesson(lesson);
+    }
+
+    public HashMap<Lesson, List<LessonEvent>> getLearnerHistory(String learnerId) throws Exception {
+        if(learnerId.isEmpty() || learnerId.isBlank()) throw new Exception("Please enter a valid learner ID.");
+        return lessonController.getLearnerHistory(learnerId);
+    }
+
+    public HashMap<String, Double> getAllCoachReport(){
+        return lessonController.getAllCoachReport();
     }
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
@@ -183,5 +166,13 @@ public class SchoolController {
 
     public void setLessonController(LessonController lessonController) {
         this.lessonController = lessonController;
+    }
+
+    public ArrayList<String> getListOfCoaches() {
+        return listOfCoaches;
+    }
+
+    public void setListOfCoaches(ArrayList<String> listOfCoaches) {
+        this.listOfCoaches = listOfCoaches;
     }
 }

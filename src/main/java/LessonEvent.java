@@ -9,29 +9,37 @@ public class LessonEvent {
     private String comment;
     //numerical rating of the lesson ranging from 1 to 5 (1: Very dissatisfied, 2: Dissatisfied, 3: Ok, 4: Satisfied, 5: Very Satisfied)
     private int rating;
+    private String coachName;
 
     /**
      *
      * @param learnerID
      * @param status The status should be set as -1 for canceled, 0 for booked and 1 for attended.
      */
-    public LessonEvent(String key, String learnerID, int status) {
+    public LessonEvent(String key, String learnerID, int status, String coachName) {
         setID(key);
         setLearnerID(learnerID);
         dateOfRecord = LocalDate.now();
         setStatus(status);
+        setCoachName(coachName);
     }
 
-    public LessonEvent(String key, String learnerID, int status, String comment, int rating) throws Exception {
+    public LessonEvent(String key, String learnerID, int status, String comment, int rating, String coachName) throws Exception {
         setID(key);
         setLearnerID(learnerID);
         dateOfRecord = LocalDate.now();
         setStatus(status);
         setComment(comment);
         setRating(rating);
+        setCoachName(coachName);
     }
 
     public LessonEvent(){};
+
+    public void setRating(int rating) throws Exception {
+        if(rating < 0 && rating > 5) throw new Exception("The rating is invalid. Please select a valid rating between 1 and 5");
+        this.rating = rating;
+    }
 
     public String getLearnerID() {
         return learnerID;
@@ -78,12 +86,15 @@ public class LessonEvent {
         this.ID = "BREF_" + ID;
     }
 
-    public int getRating() {
-        return rating;
+    public String getCoachName() {
+        return coachName;
     }
 
-    public void setRating(int rating) throws Exception {
-        if(rating < 0 && rating > 5) throw new Exception("The rating is invalid. Please select a valid rating between 1 and 5");
-        this.rating = rating;
+    public void setCoachName(String coachName) {
+        this.coachName = coachName;
+    }
+
+    public int getRating() {
+        return rating;
     }
 }

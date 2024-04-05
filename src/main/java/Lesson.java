@@ -13,6 +13,7 @@ public class Lesson {
     private LocalTime endTime;
     private ArrayList<String> listOfLearners;
     private ArrayList<LessonEvent> logOfActions;
+    private String coachName;
 
     /**
      * Constructor for Lesson where the ID is automatically generated based on input.
@@ -22,7 +23,7 @@ public class Lesson {
      * @param endTime The time slot of the Lesson
      * @param listOfLearners An array of String consisting of the IDs of the Learners
      */
-    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime, ArrayList<String> listOfLearners){
+    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime, ArrayList<String> listOfLearners, String coachName){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
         setStartTime(startTime);
@@ -30,6 +31,7 @@ public class Lesson {
         setListOfLearners(listOfLearners);
         setId(generateLessonID());
         logOfActions = new ArrayList<LessonEvent>();
+        setCoachName(coachName);
     }
 
     /**
@@ -39,7 +41,7 @@ public class Lesson {
      * @param startTime The time slot of the Lesson
      * @param endTime The time slot of the Lesson
      */
-    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime){
+    public Lesson(LocalDate dateOfLesson, int gradeLevel, LocalTime startTime, LocalTime endTime, String coachName){
         setDateOfLesson(dateOfLesson);
         setGradeLevel(gradeLevel);
         setStartTime(startTime);
@@ -47,6 +49,7 @@ public class Lesson {
         listOfLearners = new ArrayList<String>();
         setId(generateLessonID());
         logOfActions = new ArrayList<LessonEvent>();
+        setCoachName(coachName);
     }
 
     /**
@@ -128,5 +131,13 @@ public class Lesson {
 
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
+    }
+
+    public String getCoachName() {
+        return coachName;
+    }
+
+    public void setCoachName(String coachName) {
+        this.coachName = coachName;
     }
 }
