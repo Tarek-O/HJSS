@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added getLessonsByDayName">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Fixed bug with rating boundaries">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LessonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +170,7 @@
       <workItem from="1712322749299" duration="9643000" />
       <workItem from="1712355339468" duration="554000" />
       <workItem from="1712356025079" duration="768000" />
-      <workItem from="1712408902382" duration="1024000" />
+      <workItem from="1712408902382" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -412,14 +412,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712356599565</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Fixed bug with rating boundaries">
+      <option name="closed" value="true" />
+      <created>1712409933888</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1712409933888</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing last commit's message. Adding calculate age function." />
     <MESSAGE value="Added generate ID using the object's fields and refactored constructors accordingly. Removed redundant methods of getting day and month." />
     <MESSAGE value="Created generate ID method, refactored date of birth and added calculate age methods." />
     <MESSAGE value="Created add learner method to add learner to arraylist" />
@@ -444,7 +451,8 @@
     <MESSAGE value="Added getLessonsByMonth, getAllCoachReport, getLearnerHistory, Coach and some refactoring" />
     <MESSAGE value="Added getLessonsByGrade" />
     <MESSAGE value="Added getLessonsByDayName" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getLessonsByDayName" />
+    <MESSAGE value="Fixed bug with rating boundaries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with rating boundaries" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

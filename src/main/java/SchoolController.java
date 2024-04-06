@@ -84,8 +84,8 @@ public class SchoolController {
     }
 
 
-    public List<Lesson> getLearnerLessonsList(String learnerID){
-        return lessonController.getLearnerLessonsList(learnerID);
+    public List<Lesson> getListOfLessonsByLearner(String learnerID){
+        return lessonController.getListOfLessonsByLearner(learnerID);
     }
 
     public List<Lesson> getListOfLessonsByCoach(String coachName){
@@ -128,15 +128,15 @@ public class SchoolController {
         return lessonController.getAllCoachReport();
     }
 
-    public List<Lesson> getLessonsByMonth(int numberOfMonth, int year){
-        return lessonController.getLessonsByMonth(numberOfMonth, year);
+    public List<Lesson> getListOfLessonsByMonth(int numberOfMonth, int year){
+        return lessonController.getListOfLessonsByMonth(numberOfMonth, year);
     }
-    public List<Lesson> getLessonsByGrade(int gradeLevel){
-        return lessonController.getLessonsByGrade(gradeLevel);
+    public List<Lesson> getListOfLessonsByGrade(int gradeLevel){
+        return lessonController.getListOfLessonsByGrade(gradeLevel);
     }
 
-    public List<Lesson> getLessonsByDayName(String dayName){
-        return lessonController.getLessonsByDayName(dayName);
+    public List<Lesson> getListOfLessonsByDayName(String dayName){
+        return lessonController.getListOfLessonsByDayName(dayName);
     }
 
     /**

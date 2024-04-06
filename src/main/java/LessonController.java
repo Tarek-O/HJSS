@@ -137,7 +137,7 @@ public class LessonController{
      * @param learnerID The learner's ID
      * @return List of lessons
      */
-    public List<Lesson> getLearnerLessonsList(String learnerID){
+    public List<Lesson> getListOfLessonsByLearner(String learnerID){
         List<Lesson> lessonList = new ArrayList<Lesson>();
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()){
             if(entry.getValue().getListOfLearners().contains(learnerID)){
@@ -197,7 +197,7 @@ public class LessonController{
         return returnMap;
     }
 
-    public List<Lesson> getLessonsByMonth(int numberOfMonth, int year){
+    public List<Lesson> getListOfLessonsByMonth(int numberOfMonth, int year){
         LocalDate temp = LocalDate.of(year, numberOfMonth, 1);
         String monthAbbrev = temp.getMonth().toString().substring(0,3).toUpperCase();
         List<Lesson> listOfLessonsByMonth = new ArrayList<>();
@@ -207,7 +207,7 @@ public class LessonController{
         return listOfLessonsByMonth;
     }
 
-    public List<Lesson> getLessonsByGrade(int gradeLevel){
+    public List<Lesson> getListOfLessonsByGrade(int gradeLevel){
         List<Lesson> listOfLessonsByGrade = new ArrayList<>();
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
             if(entry.getKey().startsWith(gradeLevel + "GR")) listOfLessonsByGrade.add(entry.getValue());
@@ -215,7 +215,7 @@ public class LessonController{
         return listOfLessonsByGrade;
     }
 
-    public List<Lesson> getLessonsByDayName(String dayName){
+    public List<Lesson> getListOfLessonsByDayName(String dayName){
         String dayNameAbbrev = dayName.substring(0,3).toUpperCase();
         List<Lesson> listOfLessonsByDayName = new ArrayList<>();
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
