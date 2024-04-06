@@ -197,6 +197,25 @@ public class LessonController{
         return returnMap;
     }
 
+    public HashMap<String, List<Lesson>> getListOfLessonsPerCoach(){
+        if(getMapOfLessons() == null || getMapOfLessons().isEmpty()) return null;
+
+        HashMap<String, List<Lesson>> resultMap = new HashMap<>();
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()){
+            Lesson lesson = entry.getValue();
+            if(lesson == null) break;
+            if(resultMap.containsKey(entry.getValue().getCoachName())){
+                List<Lesson> temp = resultMap.get(entry.getValue().getCoachName());
+                temp.add(entry.getValue());
+            }else{
+                List<Lesson> temp = new ArrayList<>();
+                temp.add(entry.getValue());
+                resultMap.put(entry.getValue().getCoachName(), temp);
+            }
+        }
+
+        return resultMap;
+    }
     public List<Lesson> getListOfLessonsByMonth(int numberOfMonth, int year){
         LocalDate temp = LocalDate.of(year, numberOfMonth, 1);
         String monthAbbrev = temp.getMonth().toString().substring(0,3).toUpperCase();

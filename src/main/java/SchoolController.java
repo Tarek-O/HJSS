@@ -92,6 +92,10 @@ public class SchoolController {
         return lessonController.getListOfLessonsByCoach(coachName);
     }
 
+    public HashMap<String, List<Lesson>> getListOfLessonsPerCoach(){
+        return lessonController.getListOfLessonsPerCoach();
+    }
+
     public void incrementLearnerGrade(Learner learner){
         if(learner.getGradeLevel() == 5){
             return;

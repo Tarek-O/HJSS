@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Fixed bug with rating boundaries">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Refactored naming convention">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
@@ -170,7 +170,7 @@
       <workItem from="1712322749299" duration="9643000" />
       <workItem from="1712355339468" duration="554000" />
       <workItem from="1712356025079" duration="768000" />
-      <workItem from="1712408902382" duration="1288000" />
+      <workItem from="1712408902382" duration="2425000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -420,14 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712409933888</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Refactored naming convention">
+      <option name="closed" value="true" />
+      <created>1712410276873</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1712410276873</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added generate ID using the object's fields and refactored constructors accordingly. Removed redundant methods of getting day and month." />
     <MESSAGE value="Created generate ID method, refactored date of birth and added calculate age methods." />
     <MESSAGE value="Created add learner method to add learner to arraylist" />
     <MESSAGE value="Adding controller file to git control" />
@@ -452,7 +459,8 @@
     <MESSAGE value="Added getLessonsByGrade" />
     <MESSAGE value="Added getLessonsByDayName" />
     <MESSAGE value="Fixed bug with rating boundaries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with rating boundaries" />
+    <MESSAGE value="Refactored naming convention" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored naming convention" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
