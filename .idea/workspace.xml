@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Refactored naming convention">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added getListOfLessonsPerCoach() to meet a misunderstood requirement">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
     "Application.Controller.executor": "Run",
     "Application.Learner.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.temp.executor": "Run",
+    "Application.temp.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.test.test.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -170,7 +169,7 @@
       <workItem from="1712322749299" duration="9643000" />
       <workItem from="1712355339468" duration="554000" />
       <workItem from="1712356025079" duration="768000" />
-      <workItem from="1712408902382" duration="2425000" />
+      <workItem from="1712408902382" duration="5172000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -428,14 +427,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712410276873</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added getListOfLessonsPerCoach() to meet a misunderstood requirement">
+      <option name="closed" value="true" />
+      <created>1712412360719</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1712412360719</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created generate ID method, refactored date of birth and added calculate age methods." />
     <MESSAGE value="Created add learner method to add learner to arraylist" />
     <MESSAGE value="Adding controller file to git control" />
     <MESSAGE value="Refactored and seperated the controller into multiple controllers. Added history log for Lessons and created Booking, Canceling and Attending methods." />
@@ -460,12 +466,27 @@
     <MESSAGE value="Added getLessonsByDayName" />
     <MESSAGE value="Fixed bug with rating boundaries" />
     <MESSAGE value="Refactored naming convention" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored naming convention" />
+    <MESSAGE value="Added getListOfLessonsPerCoach() to meet a misunderstood requirement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getListOfLessonsPerCoach() to meet a misunderstood requirement" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Lesson" memberName="endTime" />

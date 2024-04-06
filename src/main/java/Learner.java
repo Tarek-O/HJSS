@@ -1,8 +1,9 @@
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Learner {
 
-    private String id;
+    private String id, learnerId;;
     private String name, emergencyContactNumber;
     private boolean gender;
     private int gradeLevel;
@@ -19,11 +20,7 @@ public class Learner {
         setEmergencyContactNumber(emergencyContactNumber);
         setGradeLevel(gradeLevel);
         setId();
-    }
-
-    public String generateLearnerID(){
-        LocalDate ldNow = LocalDate.now();
-        return getName().substring(0,3).toUpperCase()+ "_" + ldNow.getYear() + String.format("%02d",ldNow.getMonthValue()) + String.format("%02d", ldNow.getDayOfMonth());
+        setLearnerId();
     }
 
     /**
@@ -38,6 +35,20 @@ public class Learner {
         }else{
             throw new Exception("Phone number entered is not a valid UK Phone Number.");
         }
+    }
+
+    public String generateLearnerID(){
+        if(getName().isEmpty() || getName().isBlank()) return "INVALID_ID";
+        String[] nameSplit = getName().toUpperCase().split(" ");
+        String nameGen;
+        if(nameSplit.length == 1) {
+            if(nameSplit[0].length() > 1)
+            nameGen = nameSplit[0].substring(0,2);
+            else nameGen = nameSplit[0].charAt(0) + "X";
+        }else{
+            nameGen = String.valueOf(nameSplit[0].charAt(0)) + String.valueOf(nameSplit[nameSplit.length-1].charAt(0));
+        }
+        return nameGen + (getBirthDate().getYear()%100) + String.format("%02d",getBirthDate().getMonthValue()) + String.format("%02d", getBirthDate().getDayOfMonth());
     }
 
     public String getName() {
@@ -87,8 +98,14 @@ public class Learner {
     }
 
     public void setId() {
-        if(getId() == null){
-            this.id = generateLearnerID();
-        }
+        this.id = String.valueOf(UUID.randomUUID());;
+    }
+
+    public String getLearnerId() {
+        return learnerId;
+    }
+
+    public void setLearnerId() {
+        this.learnerId = generateLearnerID();
     }
 }
