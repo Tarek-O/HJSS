@@ -143,6 +143,10 @@ public class SchoolController {
         return lessonController.getListOfLessonsByDayName(dayName);
     }
 
+    public List<Learner> getListOfLearnersByLearnerID(String learnerId){
+        return learnerController.getListOfLearnersByLearnerID(learnerId);
+    }
+
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
      *

@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LearnerController {
 
@@ -12,14 +13,26 @@ public class LearnerController {
 
     /**
      * Search for Learner based on their ID
-     * @param learnerID The ID of the suspected Learner
+     * @param id The ID of the expected Learner
      * @return The object of the Learner found or null of the learner was not found
      */
-    public Learner findLearnerByID(String learnerID){
-        for(Learner le : arrayOfLearners){
-            if(le.getId().trim().equals(learnerID)) return le;
+    public Learner getLearnerByID(String id){
+        try{
+            for(Learner le : arrayOfLearners){
+                if(le.getId().equals(id)) return le;
+            }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    public List<Learner> getListOfLearnersByLearnerID(String learnerID){
+        List<Learner> listOfLearners = new ArrayList<>();
+        for(Learner le : arrayOfLearners){
+            if(le.getLearnerId().trim().equals(learnerID)) listOfLearners.add(le);
+        }
+        return listOfLearners;
     }
 
     /**
@@ -41,17 +54,6 @@ public class LearnerController {
      */
     public void removeLearner(Learner remLearner){
         arrayOfLearners.remove(remLearner);
-    }
-
-    public Learner getLearnerByID(String learnerID){
-        try{
-            for(Learner le : arrayOfLearners){
-                if(le.getId().equals(learnerID)) return le;
-            }
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
-        return null;
     }
 
     public ArrayList<Learner> getArrayOfLearners() {
