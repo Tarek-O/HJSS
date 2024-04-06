@@ -37,8 +37,7 @@ public class LessonEvent {
 
     public LessonEvent(){};
 
-    public void setRating(int rating) throws Exception {
-        if(rating < 0 && rating > 5) throw new Exception("The rating is invalid. Please select a valid rating between 1 and 5");
+    public void setRating(int rating){
         this.rating = rating;
     }
 

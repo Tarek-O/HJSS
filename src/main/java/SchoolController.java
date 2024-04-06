@@ -52,7 +52,8 @@ public class SchoolController {
     }
 
 
-    public void attendLesson(String lessonID, String learnerID, String comment, int rating){
+    public void attendLesson(String lessonID, String learnerID, String comment, int rating) throws Exception {
+        if(rating > 5 || rating < 1) throw new Exception("The please enter a valid rating, where 5 is the highest rating.");
         try {
             Lesson lesson = lessonController.getLessonByID(lessonID);
             lessonController.attendLesson(lessonController.getLastEventOfLearner(lessonID, learnerID).getID(), lesson, learnerID, comment, rating, lesson.getCoachName());
