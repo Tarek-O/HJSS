@@ -1,0 +1,15 @@
+Learner:
+Tarek Omran, Male, 19/05/2018, 07570492050, 1
+Yarek Tmran, Female, 31/08/2019, 07570492050, 1
+********
+Lesson:
+10/04/2024, 11:30, 12:30, 1, Coach Ahmad
+Learners attending:
+TO180519, YT190831
+Log of Actions:
+BREF_1234678, TO180519, 0, Coach Ahmad
+BREF_87654321, YT190831, 1, It was alright, 3, Coach Ahmad
+BREF_54213211, TO180519, -1, Coach Ahmad
+********
+Lesson:
+15/05/2024, 16:30, 17:30, 1, Coach Tarek

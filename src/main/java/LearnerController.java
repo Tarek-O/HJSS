@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LearnerController {
 
-    private ArrayList<Learner> arrayOfLearners;
+    private List<Learner> arrayOfLearners;
 
     LearnerController(){
         arrayOfLearners = new ArrayList<Learner>();
@@ -56,7 +56,7 @@ public class LearnerController {
         arrayOfLearners.remove(remLearner);
     }
 
-    public ArrayList<Learner> getArrayOfLearners() {
+    public List<Learner> getListOfLearners() {
         return arrayOfLearners;
     }
 

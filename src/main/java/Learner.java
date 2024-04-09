@@ -12,8 +12,7 @@ public class Learner {
     //Format of the UK Phone Number using Regex. Accepts country code as well.
     private final String phoneNumberRegex = "^(((\\+44\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((\\+44\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((\\+44\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$";
 
-    public Learner(){};
-    public Learner(String name, boolean gender, LocalDate birthDate, String emergencyContactNumber, int gradeLevel) throws Exception {
+    public Learner(String name, String gender, LocalDate birthDate, String emergencyContactNumber, int gradeLevel) throws Exception {
         setName(name);
         setGender(gender);
         setBirthDate(birthDate);
@@ -30,6 +29,7 @@ public class Learner {
      */
     public void  setEmergencyContactNumber(String emergencyContactNumber) throws Exception {
         //If the Phone Number matches the UK Format then add it to the number
+        if(!emergencyContactNumber.startsWith("0") && !emergencyContactNumber.startsWith("+")) emergencyContactNumber = "0" + emergencyContactNumber;
         if(emergencyContactNumber.matches(phoneNumberRegex)){
             this.emergencyContactNumber = emergencyContactNumber;
         }else{
@@ -67,13 +67,12 @@ public class Learner {
      * True for male. False for female.
      * @param gender
      */
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setGender(String gender) {
+        if(gender.toUpperCase().equals("MALE") || gender.toUpperCase().equals("M") || gender.equals("1")){
+            this.gender = true;
+        }else this.gender = false;
     }
 
-    public boolean isGender() {
-        return gender;
-    }
 
     public LocalDate getBirthDate() { return birthDate; }
 

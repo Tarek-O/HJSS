@@ -11,7 +11,6 @@ public class SchoolController {
 
     private LearnerController learnerController = new LearnerController();
     private LessonController lessonController = new LessonController();
-    private ArrayList<String> listOfCoaches = new ArrayList<String>();
     private Key key = new Key();
     private final double maxHoursPerClass = 1;
     private final int maxNumberOfLearnerPerClass = 4;
@@ -147,6 +146,10 @@ public class SchoolController {
         return learnerController.getListOfLearnersByLearnerID(learnerId);
     }
 
+    public Learner getLearnerByID(String id){
+        return learnerController.getLearnerByID(id);
+    }
+
     /**
      * The age of the learner of when they will potentially attend an event at a specific date.
      *
@@ -173,27 +176,31 @@ public class SchoolController {
         return (double) firstInput.until(secondInput, ChronoUnit.MINUTES)/60;
     }
 
-    public LearnerController getLearnerController() {
+    private LearnerController getLearnerController() {
         return learnerController;
     }
 
-    public void setLearnerController(LearnerController learnerController) {
+    private void setLearnerController(LearnerController learnerController) {
         this.learnerController = learnerController;
     }
 
-    public LessonController getLessonController() {
+    private LessonController getLessonController() {
         return lessonController;
     }
 
-    public void setLessonController(LessonController lessonController) {
+    private void setLessonController(LessonController lessonController) {
         this.lessonController = lessonController;
     }
 
-    public ArrayList<String> getListOfCoaches() {
-        return listOfCoaches;
+    public List<String> getFamiliarKeys(String search){
+        return lessonController.getFamiliarKeys(search);
     }
 
-    public void setListOfCoaches(ArrayList<String> listOfCoaches) {
-        this.listOfCoaches = listOfCoaches;
+    public HashMap<String, Lesson> getMapOfLessons() {
+        return lessonController.getMapOfLessons();
+    }
+
+    public List<Learner> getListOfLearners() {
+        return learnerController.getListOfLearners();
     }
 }

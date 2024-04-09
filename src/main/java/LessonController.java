@@ -14,8 +14,8 @@ public class LessonController{
      * @param search
      * @return
      */
-    public ArrayList<String> getFamiliarKeys(String search){
-        ArrayList<String> listOfKeys = new ArrayList<String>();
+    public List<String> getFamiliarKeys(String search){
+        List<String> listOfKeys = new ArrayList<String>();
         for(String input : mapOfLessons.keySet()){
             if(input.contains(search)){
                 listOfKeys.add(input);
@@ -268,6 +268,10 @@ public class LessonController{
             if(lesson.getLogOfActions().get(i).getStatus() == 1) return true;
         }
         return false;
+    }
+
+    public void modifyCoachName(Lesson lesson, String coachName){
+        if(!coachName.isEmpty() && !coachName.isBlank()) lesson.setCoachName(coachName);
     }
 
     public HashMap<String, Lesson> getMapOfLessons() {
