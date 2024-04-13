@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Learner {
@@ -39,7 +40,7 @@ public class Learner {
 
     public String generateLearnerID(){
         if(getName().isEmpty() || getName().isBlank()) return "INVALID_ID";
-        String[] nameSplit = getName().toUpperCase().split(" ");
+        String[] nameSplit = getName().trim().toUpperCase().split(" ");
         String nameGen;
         if(nameSplit.length == 1) {
             if(nameSplit[0].length() > 1)
@@ -76,7 +77,8 @@ public class Learner {
 
     public LocalDate getBirthDate() { return birthDate; }
 
-    public void setBirthDate(LocalDate dateOfBirth) {
+    public void setBirthDate(LocalDate dateOfBirth) throws Exception {
+        if(dateOfBirth.isAfter(LocalDate.now())) throw new Exception("Learner birth date can not be in the future");
         this.birthDate = dateOfBirth;
     }
 
@@ -106,5 +108,10 @@ public class Learner {
 
     public void setLearnerId() {
         this.learnerId = generateLearnerID();
+    }
+
+    public String printLearner(){
+        DateTimeFormatter inputDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return "ID: " + getLearnerId() + ",  Name: " + getName() + ", Gender: " + getGender() + ", Grade: " + getGradeLevel() +", Date of Birth: " + getBirthDate().format(inputDateFormatter) + ", Emergency Phone Number: " + getEmergencyContactNumber() + ".";
     }
 }

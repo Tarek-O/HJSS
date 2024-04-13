@@ -27,4 +27,8 @@ public class Key {
         listOfPreviousKeys.add(stringBuilder.toString());
         return stringBuilder.toString();
     }
+
+    public void setListOfPreviousKeys(ArrayList<String> listOfPreviousKeys){
+        this.listOfPreviousKeys = listOfPreviousKeys;
+    }
 }

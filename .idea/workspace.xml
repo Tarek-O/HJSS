@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Refactored getLearnerById and added getListOfLearnersByLearnerID()">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added data creation class and data. Added modifyCoach function and refactoring">
       <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Key.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LearnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LessonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataSet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +83,7 @@
     "Application.DataCreation.executor": "Debug",
     "Application.Learner.executor": "Run",
     "Application.Test.executor": "Run",
+    "Application.mainExecutable.executor": "Run",
     "Application.temp.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.test.test.executor": "Run",
@@ -109,7 +113,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.temp">
+  <component name="RunManager" selected="Application.mainExecutable">
     <configuration name="DataCreation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DataCreation" />
       <module name="Coursework" />
@@ -119,6 +123,13 @@
     </configuration>
     <configuration name="LessonController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LessonController" />
+      <module name="Coursework" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainExecutable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mainExecutable" />
       <module name="Coursework" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,6 +154,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.mainExecutable" />
         <item itemvalue="Application.temp" />
         <item itemvalue="Application.DataCreation" />
         <item itemvalue="JUnit.test.test" />
@@ -184,7 +196,12 @@
       <workItem from="1712356025079" duration="768000" />
       <workItem from="1712408902382" duration="8699000" />
       <workItem from="1712585118103" duration="7062000" />
-      <workItem from="1712675239443" duration="14862000" />
+      <workItem from="1712675239443" duration="22144000" />
+      <workItem from="1712736915497" duration="13844000" />
+      <workItem from="1712777732074" duration="7624000" />
+      <workItem from="1712844562485" duration="37020000" />
+      <workItem from="1713009133944" duration="236000" />
+      <workItem from="1713029599309" duration="7403000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -466,14 +483,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712415813031</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added data creation class and data. Added modifyCoach function and refactoring">
+      <option name="closed" value="true" />
+      <created>1712691406672</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1712691406672</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored and seperated the controller into multiple controllers. Added history log for Lessons and created Booking, Canceling and Attending methods." />
     <MESSAGE value="Handled the grade conditions" />
     <MESSAGE value="Modified booking method to throw exceptions based on error" />
     <MESSAGE value="Isolated booking, canceling and attending functionality from Lesson class into controllers" />
@@ -498,7 +522,8 @@
     <MESSAGE value="Added getListOfLessonsPerCoach() to meet a misunderstood requirement" />
     <MESSAGE value="Refactored Learner ID and learnerID concept" />
     <MESSAGE value="Refactored getLearnerById and added getListOfLearnersByLearnerID()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored getLearnerById and added getListOfLearnersByLearnerID()" />
+    <MESSAGE value="Added data creation class and data. Added modifyCoach function and refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added data creation class and data. Added modifyCoach function and refactoring" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -508,17 +533,38 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>218</line>
+          <line>219</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>788</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>242</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/mainExecutable.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
+          <line>257</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Lesson" memberName="endTime" />
+        <PinnedItemInfo parentTag="LearnerController" memberName="arrayOfLearners" />
         <PinnedItemInfo parentTag="Lesson" memberName="startTime" />
         <PinnedItemInfo parentTag="Lesson" memberName="maxNumberOfLearners" />
-        <PinnedItemInfo parentTag="Lesson" memberName="listOfLearners" />
+        <PinnedItemInfo parentTag="SchoolController" memberName="learnerController" />
         <PinnedItemInfo parentTag="Lesson" memberName="dateOfLesson" />
         <PinnedItemInfo parentTag="LessonController" memberName="mapOfLessons" />
       </pinned-members>
@@ -529,6 +575,8 @@
         <watch expression="les3.logOfActions" />
         <watch expression="((Lesson)((HashMap.Node)lessonController.mapOfLessons.entrySet().toArray()[0]).getValue()).logOfActions.get(0)" custom="java.util.HashMap.Node,Lesson" />
         <watch expression="((Lesson)((HashMap.Node)lessonController.mapOfLessons.entrySet().toArray()[0]).getValue()).logOfActions.get(0)" custom="java.util.HashMap.Node,Lesson" />
+        <watch expression="controller" language="JAVA" />
+        <watch expression="((Controller)this).schoolController.learnerController.arrayOfLearners" custom="Controller" />
       </configuration>
     </watches-manager>
   </component>

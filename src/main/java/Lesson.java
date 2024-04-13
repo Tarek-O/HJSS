@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Lesson {
@@ -138,6 +139,19 @@ public class Lesson {
     }
 
     public void setCoachName(String coachName) {
-        this.coachName = coachName;
+        this.coachName = coachName.trim();
+    }
+
+    public String printDate(){
+        DateTimeFormatter inputDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return getDateOfLesson().format(inputDateFormatter);
+    }
+
+    public String printFormalLessonInfo(){
+        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ".";
+    }
+
+    public String printLesson(){
+        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ", Number of remaining slots: " + (maxNumberOfLearners - getListOfLearners().size()) + ".";
     }
 }

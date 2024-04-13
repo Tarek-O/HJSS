@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class LessonEvent {
 
@@ -91,10 +92,26 @@ public class LessonEvent {
     }
 
     public void setCoachName(String coachName) {
-        this.coachName = coachName;
+        this.coachName = coachName.trim();
     }
 
     public int getRating() {
         return rating;
+    }
+
+    public String printDate(){
+        DateTimeFormatter inputDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return getDateOfRecord().format(inputDateFormatter);
+    }
+    public String printLessonEvent(){
+        String result = "";
+        if(getStatus() == 0){
+            result = "ID: " + getID() + ", booked with " + getCoachName().trim() + ". Date of recorded event: " + printDate();
+        }else if(getStatus() == 1){
+            result = "ID: " + getID() + ", attended with " + getCoachName().trim() + ". A rating of " + getRating() + " was added with a comment: " + getComment() + ". Date of recorded event: " + printDate();
+        }else if(getStatus() == -1) {
+            result = "ID: " + getID() + ", canceled with " + getCoachName().trim() + ". Date of recorded event: " + printDate();
+        }
+        return result;
     }
 }

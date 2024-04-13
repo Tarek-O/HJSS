@@ -1,20 +1,18 @@
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class DataCreation {
     SchoolController schoolController;
     BufferedReader br;
     String breakLine = "********";
+    ArrayList<String> listOfPreviousKeys;
 
     public DataCreation(SchoolController schoolController){
         this.schoolController = schoolController;
+        listOfPreviousKeys = new ArrayList<>();
     }
     public void execute(String fileDirectory) {
         FileReader file;
@@ -143,6 +141,9 @@ public class DataCreation {
             lessonEvent = new LessonEvent(logData[0].trim(), schoolController.getListOfLearnersByLearnerID(logData[1].trim()).getFirst().getId(),
                     status, logData[3].trim(), Integer.parseInt(logData[4].trim()), logData[5].trim());
         }
-        if(lessonEvent != null) lesson.getLogOfActions().add(lessonEvent);
+        if(lessonEvent != null){
+            lesson.getLogOfActions().add(lessonEvent);
+            listOfPreviousKeys.add(lessonEvent.getID());
+        }
     }
 }

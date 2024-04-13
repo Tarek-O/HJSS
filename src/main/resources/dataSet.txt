@@ -12,4 +12,17 @@ BREF_87654321, YT190831, 1, It was alright, 3, Coach Ahmad
 BREF_54213211, TO180519, -1, Coach Ahmad
 ********
 Lesson:
-15/05/2024, 16:30, 17:30, 1, Coach Tarek
+16/05/2024, 16:30, 17:30, 1, Coach Tarek
+Learners attending:
+YT190831
+Log of Actions:
+BREF_6231231, YT190831, 0, Coach Tarek
+********
+Lesson:
+17/05/2024, 16:30, 17:30, 1, Coach Tarek
+********
+Lesson:
+18/05/2024, 16:30, 17:30, 1, Coach Tarek
+********
+Lesson:
+19/05/2024, 16:30, 17:30, 1, Coach Tarek

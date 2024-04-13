@@ -45,12 +45,14 @@ public class LessonController{
         mapOfLessons.put(newLesson.getId(), newLesson);
     }
 
+
     /**
      * Removes a Lesson if it exists.
      * @param lessonId
      */
     public void removeLesson(String lessonId) throws Exception {
-        if(hasLessonBeenAttended(lessonId)) return;
+        Lesson lesson = getLessonByID(lessonId);
+        if(hasLessonBeenAttended(lesson)) return;
         mapOfLessons.remove(lessonId);
     }
 
@@ -58,6 +60,13 @@ public class LessonController{
         Lesson lesson = getMapOfLessons().get(ID);
         if(lesson == null) throw new Exception("The lesson does not exist in our system.");
         return lesson;
+    }
+
+    public Lesson getLessonByDate(LocalDate localDate){
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()){
+            if(entry.getValue().getDateOfLesson().equals(localDate)) return entry.getValue();
+        }
+        return null;
     }
 
     /**
@@ -124,8 +133,7 @@ public class LessonController{
 
     public List<Lesson> getListOfLessonsByCoach(String coachName){
         List<Lesson> resultList = new ArrayList<Lesson>();
-        for (Map.Entry<String, Lesson> set :
-                getMapOfLessons().entrySet()) {
+        for (Map.Entry<String, Lesson> set : getMapOfLessons().entrySet()) {
             if(set.getValue().getCoachName().equals(coachName))
                 resultList.add(set.getValue());
         }
@@ -216,12 +224,47 @@ public class LessonController{
 
         return resultMap;
     }
+
+    public List<LessonEvent> getCoachLessonsEventsByMonth(String coachName, int numberOfMonth, int year){
+        LocalDate temp = LocalDate.of(year, numberOfMonth, 1);
+        String monthAbbrev = temp.getMonth().toString().substring(0,3).toUpperCase();
+        List<LessonEvent> listOfLessonEvent = new ArrayList<>();
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
+            if(entry.getKey().endsWith(monthAbbrev.concat(String.valueOf(temp.getYear()%100)))){
+                for(int i = 0 ; i < entry.getValue().getLogOfActions().size(); i++){
+                    if(entry.getValue().getLogOfActions().get(i).getCoachName().equals(coachName)){
+                        listOfLessonEvent.add(entry.getValue().getLogOfActions().get(i));
+                    }
+                }
+            }
+        }
+        return listOfLessonEvent;
+    }
+
+    public List<Lesson> getListOfLearnerLessonsByMonth(String learnerId, int numberOfMonth, int year){
+        LocalDate temp = LocalDate.of(year, numberOfMonth, 1);
+        String monthAbbrev = temp.getMonth().toString().substring(0,3).toUpperCase();
+        List<Lesson> listOfLessonsByMonth = new ArrayList<>();
+        for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
+            if(entry.getKey().endsWith(monthAbbrev.concat(String.valueOf(temp.getYear()%100)))){
+                for(int i = 0 ; i < entry.getValue().getLogOfActions().size(); i++){
+                    if(entry.getValue().getLogOfActions().get(i).getLearnerID().equals(learnerId) && !listOfLessonsByMonth.contains(entry.getValue())){
+                        listOfLessonsByMonth.add(entry.getValue());
+                    }
+                }
+            }
+        }
+        return listOfLessonsByMonth;
+    }
+
     public List<Lesson> getListOfLessonsByMonth(int numberOfMonth, int year){
         LocalDate temp = LocalDate.of(year, numberOfMonth, 1);
         String monthAbbrev = temp.getMonth().toString().substring(0,3).toUpperCase();
         List<Lesson> listOfLessonsByMonth = new ArrayList<>();
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()) {
-            if(entry.getKey().endsWith(monthAbbrev.concat(String.valueOf(temp.getYear()%100)))) listOfLessonsByMonth.add(entry.getValue());
+            if(entry.getKey().endsWith(monthAbbrev.concat(String.valueOf(temp.getYear()%100)))){
+                        listOfLessonsByMonth.add(entry.getValue());
+            }
         }
         return listOfLessonsByMonth;
     }
@@ -262,8 +305,13 @@ public class LessonController{
         return true;
     }
 
-    public boolean hasLessonBeenAttended(String lessonId) throws Exception {
+    public boolean hasLearnerAttendedLesson(String lessonId, String learnerID) throws Exception {
         Lesson lesson = getLessonByID(lessonId);
+        int status = getLastEventOfLearner(lessonId, learnerID).getStatus();
+        return status != 0 && status != -1;
+    }
+
+    public boolean hasLessonBeenAttended(Lesson lesson){
         for(int i = 0 ; i < lesson.getLogOfActions().size(); i++){
             if(lesson.getLogOfActions().get(i).getStatus() == 1) return true;
         }
