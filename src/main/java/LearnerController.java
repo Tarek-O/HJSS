@@ -17,12 +17,8 @@ public class LearnerController {
      * @return The object of the Learner found or null of the learner was not found
      */
     public Learner getLearnerByID(String id){
-        try{
-            for(Learner le : arrayOfLearners){
-                if(le.getId().equals(id)) return le;
-            }
-        }catch (Exception e){
-            System.err.println(e.getMessage());
+        for(Learner le : arrayOfLearners){
+            if(le.getId().equals(id)) return le;
         }
         return null;
     }

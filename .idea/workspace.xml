@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added data creation class and data. Added modifyCoach function and refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Coach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found">
       <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LearnerControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LearnerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LessonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LearnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearnerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LessonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataSet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -86,6 +83,43 @@
     "Application.mainExecutable.executor": "Run",
     "Application.temp.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.LearnerControllerTest.addNewLearner.executor": "Run",
+    "JUnit.LearnerControllerTest.addNewLearnerDuplicate.executor": "Run",
+    "JUnit.LearnerControllerTest.getLearnerByID.executor": "Run",
+    "JUnit.LearnerControllerTest.getLearnerByIDNotExisting.executor": "Run",
+    "JUnit.LearnerControllerTest.getListOfLearners.executor": "Run",
+    "JUnit.LearnerControllerTest.getListOfLearnersByLearnerID.executor": "Debug",
+    "JUnit.LearnerControllerTest.getListOfLearnersByLearnerIDWithDifferentIDs.executor": "Run",
+    "JUnit.LearnerControllerTest.removeLearner.executor": "Run",
+    "JUnit.LearnerControllerTest.removeLearnerNotExisting.executor": "Run",
+    "JUnit.LearnerTest.setBirthUnbornChild.executor": "Run",
+    "JUnit.LearnerTest.setEmergencyContactNumber.executor": "Run",
+    "JUnit.LearnerTest.setEmergencyContactNumberWithCountryCode.executor": "Run",
+    "JUnit.LearnerTest.setEmergencyContactNumberWithInvalidNumber.executor": "Run",
+    "JUnit.LearnerTest.setGenderAnythingElse.executor": "Run",
+    "JUnit.LearnerTest.setGenderMale.executor": "Run",
+    "JUnit.LearnerTest.setGenderNumber.executor": "Run",
+    "JUnit.LessonControllerTest.addNewLesson.executor": "Run",
+    "JUnit.LessonControllerTest.addOrModifyLesson.executor": "Run",
+    "JUnit.LessonControllerTest.attendLesson.executor": "Run",
+    "JUnit.LessonControllerTest.bookLesson.executor": "Run",
+    "JUnit.LessonControllerTest.cancelLesson.executor": "Run",
+    "JUnit.LessonControllerTest.getFamiliarKeys.executor": "Debug",
+    "JUnit.LessonControllerTest.getLessonByDate.executor": "Run",
+    "JUnit.LessonControllerTest.getLessonByID.executor": "Run",
+    "JUnit.LessonControllerTest.getListOfLessonsByCoach.executor": "Run",
+    "JUnit.LessonControllerTest.hasLearnerAttendedLesson.executor": "Run",
+    "JUnit.LessonControllerTest.hasLearnerAttendedOrCanceledLesson.executor": "Run",
+    "JUnit.LessonControllerTest.hasLearnerBookedLesson.executor": "Run",
+    "JUnit.LessonControllerTest.removeLesson.executor": "Run",
+    "JUnit.LessonTest.hasAvailableSpot.executor": "Run",
+    "JUnit.LessonTest.hasAvailableSpotInvalid.executor": "Run",
+    "JUnit.SchoolControllerTest.attendLesson.executor": "Run",
+    "JUnit.SchoolControllerTest.bookLearnerToLesson.executor": "Run",
+    "JUnit.SchoolControllerTest.incrementLearnerGrade.executor": "Run",
+    "JUnit.SchoolControllerTest.isLearnerAgeValid.executor": "Run",
+    "JUnit.SchoolControllerTest.modifyBooking.executor": "Run",
+    "JUnit.SchoolControllerTest.revalidateLearnerBookings.executor": "Run",
     "JUnit.test.test.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -95,6 +129,8 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
@@ -109,44 +145,64 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "JavaScript.Libraries",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.mainExecutable">
-    <configuration name="DataCreation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DataCreation" />
-      <module name="Coursework" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LessonController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LessonController" />
-      <module name="Coursework" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="mainExecutable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mainExecutable" />
-      <module name="Coursework" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="temp" />
-      <module name="Coursework" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SchoolControllerTest.isLearnerAgeValid">
+    <configuration name="SchoolControllerTest.attendLesson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="attendLesson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchoolControllerTest.incrementLearnerGrade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="incrementLearnerGrade" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchoolControllerTest.isLearnerAgeValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="isLearnerAgeValid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchoolControllerTest.modifyBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="modifyBooking" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchoolControllerTest.revalidateLearnerBookings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="revalidateLearnerBookings" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.mainExecutable" />
-        <item itemvalue="Application.temp" />
-        <item itemvalue="Application.DataCreation" />
-        <item itemvalue="JUnit.test.test" />
-        <item itemvalue="Application.LessonController" />
+        <item itemvalue="JUnit.SchoolControllerTest.isLearnerAgeValid" />
+        <item itemvalue="JUnit.SchoolControllerTest.revalidateLearnerBookings" />
+        <item itemvalue="JUnit.SchoolControllerTest.incrementLearnerGrade" />
+        <item itemvalue="JUnit.SchoolControllerTest.modifyBooking" />
+        <item itemvalue="JUnit.SchoolControllerTest.attendLesson" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +258,9 @@
       <workItem from="1712844562485" duration="37020000" />
       <workItem from="1713009133944" duration="236000" />
       <workItem from="1713029599309" duration="7403000" />
+      <workItem from="1713044328235" duration="83000" />
+      <workItem from="1713101480726" duration="5190000" />
+      <workItem from="1713269822350" duration="6876000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -491,14 +550,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712691406672</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found">
+      <option name="closed" value="true" />
+      <created>1713044402544</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1713044402544</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Handled the grade conditions" />
     <MESSAGE value="Modified booking method to throw exceptions based on error" />
     <MESSAGE value="Isolated booking, canceling and attending functionality from Lesson class into controllers" />
     <MESSAGE value="Refactored LessonHistory to LessonEvent. Added key generation for the booking reference system and refactored SchoolController methods." />
@@ -523,7 +589,8 @@
     <MESSAGE value="Refactored Learner ID and learnerID concept" />
     <MESSAGE value="Refactored getLearnerById and added getListOfLearnersByLearnerID()" />
     <MESSAGE value="Added data creation class and data. Added modifyCoach function and refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added data creation class and data. Added modifyCoach function and refactoring" />
+    <MESSAGE value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
+    <option name="LAST_COMMIT_MESSAGE" value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -579,5 +646,9 @@
         <watch expression="((Controller)this).schoolController.learnerController.arrayOfLearners" custom="Controller" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

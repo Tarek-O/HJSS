@@ -4,8 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Lesson {
-
-    private final int maxNumberOfLearners = 4;
+    private int maxNumberOfLearners = 4;
 
     private String id;
     private LocalDate dateOfLesson;
@@ -140,6 +139,15 @@ public class Lesson {
 
     public void setCoachName(String coachName) {
         this.coachName = coachName.trim();
+    }
+
+
+    public int getMaxNumberOfLearners() {
+        return maxNumberOfLearners;
+    }
+
+    public void setMaxNumberOfLearners(int maxNumberOfLearners) {
+        this.maxNumberOfLearners = maxNumberOfLearners;
     }
 
     public String printDate(){

@@ -287,21 +287,9 @@ public class LessonController{
         return listOfLessonsByDayName;
     }
 
-    public void removeLearnerFromLesson(String lessonId, String learnerID) throws Exception {
-        Lesson lesson = getLessonByID(lessonId);
-        if(hasLearnerBookedLesson(lesson.getId(), learnerID) && !hasLearnerAttendedOrCanceledLesson(lesson.getId(), learnerID))
-            lesson.getListOfLearners().remove(learnerID);
-    }
-
     public boolean hasLearnerBookedLesson(String lessonId, String learnerID) throws Exception {
         Lesson lesson = getLessonByID(lessonId);
         if(!lesson.getListOfLearners().contains(learnerID)) throw new Exception("The learner did not book this lesson.");
-        return true;
-    }
-
-    public boolean hasLearnerAttendedOrCanceledLesson(String lessonId, String learnerID) throws Exception {
-        Lesson lesson = getLessonByID(lessonId);
-        if(getLastEventOfLearner(lessonId, learnerID).getStatus() != 0) throw new Exception("The learner is not booked on this lesson.");
         return true;
     }
 
