@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found">
-      <change afterPath="$PROJECT_DIR$/src/main/java/temp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LearnerControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LearnerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LessonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" afterDir="false" />
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LearnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LearnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataSet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +78,9 @@
     "Application.Controller.executor": "Run",
     "Application.DataCreation.executor": "Debug",
     "Application.Learner.executor": "Run",
+    "Application.Main Exec.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.mainExecutable.executor": "Run",
+    "Application.mainExecutable.executor": "Debug",
     "Application.temp.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.LearnerControllerTest.addNewLearner.executor": "Run",
@@ -119,6 +119,7 @@
     "JUnit.SchoolControllerTest.incrementLearnerGrade.executor": "Run",
     "JUnit.SchoolControllerTest.isLearnerAgeValid.executor": "Run",
     "JUnit.SchoolControllerTest.modifyBooking.executor": "Run",
+    "JUnit.SchoolControllerTest.removeLesson.executor": "Run",
     "JUnit.SchoolControllerTest.revalidateLearnerBookings.executor": "Run",
     "JUnit.test.test.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -157,13 +158,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SchoolControllerTest.isLearnerAgeValid">
-    <configuration name="SchoolControllerTest.attendLesson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main Exec">
+    <configuration name="Main Exec" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mainExecutable" />
       <module name="Coursework" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="attendLesson" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -198,6 +196,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SchoolControllerTest.removeLesson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="removeLesson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SchoolControllerTest.revalidateLearnerBookings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
@@ -208,13 +216,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main Exec" />
+      <item itemvalue="JUnit.SchoolControllerTest.incrementLearnerGrade" />
+      <item itemvalue="JUnit.SchoolControllerTest.isLearnerAgeValid" />
+      <item itemvalue="JUnit.SchoolControllerTest.modifyBooking" />
+      <item itemvalue="JUnit.SchoolControllerTest.removeLesson" />
+      <item itemvalue="JUnit.SchoolControllerTest.revalidateLearnerBookings" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SchoolControllerTest.removeLesson" />
         <item itemvalue="JUnit.SchoolControllerTest.isLearnerAgeValid" />
         <item itemvalue="JUnit.SchoolControllerTest.revalidateLearnerBookings" />
         <item itemvalue="JUnit.SchoolControllerTest.incrementLearnerGrade" />
         <item itemvalue="JUnit.SchoolControllerTest.modifyBooking" />
-        <item itemvalue="JUnit.SchoolControllerTest.attendLesson" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +276,8 @@
       <workItem from="1713029599309" duration="7403000" />
       <workItem from="1713044328235" duration="83000" />
       <workItem from="1713101480726" duration="5190000" />
-      <workItem from="1713269822350" duration="6876000" />
+      <workItem from="1713269822350" duration="8421000" />
+      <workItem from="1713343108340" duration="19929000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -558,14 +575,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713044402544</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added unit tests">
+      <option name="closed" value="true" />
+      <created>1713281564629</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713281564629</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modified booking method to throw exceptions based on error" />
     <MESSAGE value="Isolated booking, canceling and attending functionality from Lesson class into controllers" />
     <MESSAGE value="Refactored LessonHistory to LessonEvent. Added key generation for the booking reference system and refactored SchoolController methods." />
     <MESSAGE value="Handled case where learner can cancel an attended lesson" />
@@ -590,7 +614,8 @@
     <MESSAGE value="Refactored getLearnerById and added getListOfLearnersByLearnerID()" />
     <MESSAGE value="Added data creation class and data. Added modifyCoach function and refactoring" />
     <MESSAGE value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
-    <option name="LAST_COMMIT_MESSAGE" value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
+    <MESSAGE value="Added unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -599,29 +624,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/temp.java</url>
-          <line>219</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>788</line>
+          <line>796</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>242</line>
+          <line>237</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/mainExecutable.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="42" />
+          <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
+          <line>403</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
-          <line>257</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>1456</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -644,6 +664,10 @@
         <watch expression="((Lesson)((HashMap.Node)lessonController.mapOfLessons.entrySet().toArray()[0]).getValue()).logOfActions.get(0)" custom="java.util.HashMap.Node,Lesson" />
         <watch expression="controller" language="JAVA" />
         <watch expression="((Controller)this).schoolController.learnerController.arrayOfLearners" custom="Controller" />
+        <watch expression="((Controller)this).schoolController.learnerController.arrayOfLearners" custom="Controller" />
+        <watch expression="this" />
+        <watch expression="this" />
+        <watch expression="schoolController" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

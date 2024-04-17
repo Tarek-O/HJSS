@@ -159,4 +159,28 @@ class SchoolControllerTest {
             fail();
         }
     }
+
+    @Test
+    void removeLesson(){
+        Lesson lesson1 = new Lesson(LocalDate.now(), 2, LocalTime.now(), LocalTime.now().plusHours(1), "Coach Name");
+        try {
+            schoolController.addNewLesson(lesson1);
+            schoolController.removeLesson(lesson1.getId());
+            assertFalse(schoolController.getMapOfLessons().containsValue(lesson1));
+        }catch (Exception e){
+            fail();
+        }
+
+        Lesson lesson2 = new Lesson(LocalDate.now().plusDays(2), 1, LocalTime.now(), LocalTime.now().plusHours(1), "Coach Name");
+        try {
+            schoolController.addNewLesson(lesson2);
+            Learner learner = new Learner("name", "M", LocalDate.now().minusYears(5), "+447570123123", 1);
+            schoolController.bookLearnerToLesson(learner, lesson2);
+            schoolController.attendLesson(lesson2.getId(), learner.getId(), "Test comment", 5);
+            schoolController.removeLesson(lesson2.getId());
+            assertTrue(schoolController.getMapOfLessons().containsValue(lesson2));
+        }catch (Exception e){
+        }
+
+    }
 }

@@ -1,28 +1,567 @@
 Learner:
-Tarek Omran, Male, 19/05/2018, 07570492050, 1
-Yarek Tmran, Female, 31/08/2019, 07570492050, 1
+First GradeLearner, Male, 19/05/2018, 07570123001, 1
+Second GradeLearner, Female, 18/07/2017, 07570123002, 2
+Third GradeLearner, Male, 03/02/2019, 07570123003, 3
+F, Female, 15/03/2016, 07570123004, 4
+Fifth, Male, 27/10/2019, 07570123005, 5
+FNotFirst GNotGrade, Male, 19/05/2018, 07570123006, 3
+Tarek Omran, Male, 12/07/2017, 07570123007, 3
+Warek Omran, Male, 13/07/2017, 07570123008, 3
+Parek Omran, Male, 14/01/2017, 07570123009, 3
+Larek Gmran, Male, 17/04/2017, 07570123007, 1
+Tarek Gmran, Male, 18/04/2017, 07570123007, 1
+Warek Gmran, Male, 19/04/2017, 07570123008, 1
+Parek Gmran, Male, 20/04/2017, 07570123009, 1
+Larek Fmran, Female, 17/08/2017, 07570123010, 4
+Tarek Fmran, Female, 18/08/2017, +447570123011, 4
+Warek Fmran, Female, 01/07/2012, +447570123012, 4
+Parek Fmran, Female, 20/08/2017, +447570123013, 4
 ********
 Lesson:
-10/04/2024, 11:30, 12:30, 1, Coach Ahmad
+06/05/2024, 16:00, 17:00, 1, Coach Grade1
 Learners attending:
-TO180519, YT190831
+FG180519
 Log of Actions:
-BREF_1234678, TO180519, 0, Coach Ahmad
-BREF_87654321, YT190831, 1, It was alright, 3, Coach Ahmad
-BREF_54213211, TO180519, -1, Coach Ahmad
+BREF_00000001, FG180519, 0, Coach Grade1
+BREF_00000001, FG180519, 1, It was alright, 3, Coach Grade1
 ********
 Lesson:
-16/05/2024, 16:30, 17:30, 1, Coach Tarek
+06/05/2024, 17:00, 18:00, 1, Coach Grade1
+Log of Actions:
+BREF_00000002, FG180519, 0, Coach Grade1
+BREF_00000002, FG180519, -1, Coach Grade1
+********
+Lesson:
+06/05/2024, 18:00, 19:00, 1, Coach Grade1
 Learners attending:
-YT190831
+FG180519
 Log of Actions:
-BREF_6231231, YT190831, 0, Coach Tarek
+BREF_00000003, FG180519, 0, Coach Grade1
+BREF_00000003, FG180519, 1, I really enjoyed this class, 5, Coach Grade1
 ********
 Lesson:
-17/05/2024, 16:30, 17:30, 1, Coach Tarek
+08/05/2024, 16:00, 17:00, 1, Coach Grade1
+Log of Actions:
+BREF_00000008, FG180519, 0, Coach Grade1
+BREF_00000008, FG180519, -1, Coach Grade1
 ********
 Lesson:
-18/05/2024, 16:30, 17:30, 1, Coach Tarek
+08/05/2024, 17:00, 18:00, 1, Coach Grade1
+Learners attending:
+FG180519
+Log of Actions:
+BREF_00000005, FG180519, 0, Coach Grade1
 ********
 Lesson:
-19/05/2024, 16:30, 17:30, 1, Coach Tarek
+08/05/2024, 18:00, 19:00, 1, Coach Grade1
+********
+Lesson:
+10/05/2024, 16:00, 17:00, 1, Coach Grade1
+Learners attending:
+FG180519
+Log of Actions:
+BREF_00000006, FG180519, 0, Coach Grade1
+********
+Lesson:
+10/05/2024, 17:00, 18:00, 1, Coach Grade1
+********
+Lesson:
+10/05/2024, 18:00, 19:00, 1, Coach Grade1
+Learners attending:
+LG170417, TG170418, WG170419, PG170420
+Log of Actions:
+BREF_00001001, LG170417, 0, Coach Grade1
+BREF_00001002, TG170418, 0, Coach Grade1
+BREF_00001003, WG170419, 0, Coach Grade1
+BREF_00001004, PG170420, 0, Coach Grade1
+********
+Lesson:
+11/05/2024, 14:00, 15:00, 1, Coach Grade1
+Learners attending:
+FG180519
+Log of Actions:
+BREF_00000004, FG180519, 0, Coach Grade1
+********
+Lesson:
+11/05/2024, 15:00, 16:00, 1, Coach Grade1
+********
+Lesson:
+13/05/2024, 16:00, 17:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000273, SG170718, 0, Coach Grade2
+********
+Lesson:
+13/05/2024, 17:00, 18:00, 2, Coach Grade2
+********
+Lesson:
+13/05/2024, 18:00, 19:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000201, SG170718, 0, Coach Grade2
+BREF_00000201, SG170718, 1, The class was terrible, 1, Coach Grade2
+********
+Lesson:
+15/05/2024, 16:00, 17:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000242, SG170718, 0, Coach Grade2
+********
+Lesson:
+15/05/2024, 17:00, 18:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000205, SG170718, 0, Coach Grade2
+********
+Lesson:
+15/05/2024, 18:00, 19:00, 2, Coach Grade2
+Log of Actions:
+BREF_00000203, SG170718, 0, Coach Grade2
+BREF_00000203, SG170718, -1, Coach Grade2
+********
+Lesson:
+17/05/2024, 16:00, 17:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000202, SG170718, 0, Coach Grade2
+BREF_00000202, SG170718, 1, The class was perfect!, 5, Coach Grade2
+********
+Lesson:
+17/05/2024, 17:00, 18:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000252, SG170718, 0, Coach Grade2
+********
+Lesson:
+17/05/2024, 18:00, 19:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000206, SG170718, 0, Coach Grade2
+********
+Lesson:
+18/05/2024, 14:00, 15:00, 2, Coach Grade2
+Learners attending:
+SG170718
+Log of Actions:
+BREF_00000205, SG170718, 0, Coach Grade2
+********
+Lesson:
+18/05/2024, 15:00, 16:00, 2, Coach Grade2
+Log of Actions:
+BREF_00000204, SG170718, 0, Coach Grade2
+BREF_00000204, SG170718, -1, Coach Grade2
+********
+Lesson:
+20/05/2024, 16:00, 17:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000305, TG190203, 0, Coach Grade3
+********
+Lesson:
+20/05/2024, 17:00, 18:00, 3, Coach Grade3
+********
+Lesson:
+20/05/2024, 18:00, 19:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000306, TG190203, 0, Coach Grade3
+********
+Lesson:
+22/05/2024, 16:00, 17:00, 3, Coach Grade3
+Learners attending:
+TO170712, WO170713, PO170114, FG180519
+Log of Actions:
+BREF_00000320, TG190203, 0, Coach Grade3
+BREF_00000320, TG190203, -1, Coach Grade3
+BREF_00000700, TO170712, 0, Coach Grade3
+BREF_00000701, WO170713, 0, Coach Grade3
+BREF_00000701, WO170713, 1, Did not enjoy it, 2, Coach Grade3
+BREF_00000702, PO170114, 0, Coach Grade3
+BREF_00000702, PO170114, 1, I learned how to butterfly, 1, Coach Grade3
+BREF_00000382, FG180519, 0, Coach Grade3
+********
+Lesson:
+22/05/2024, 17:00, 18:00, 3, Coach Grade3
+
+********
+Lesson:
+22/05/2024, 18:00, 19:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000301, TG190203, 0, Coach Grade3
+BREF_00000301, TG190203, 1, It was alright, 2, Coach Grade3
+********
+Lesson:
+24/05/2024, 16:00, 17:00, 3, Coach Grade3
+********
+Lesson:
+24/05/2024, 17:00, 18:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000310, TG190203, 0, Coach Grade3
+********
+Lesson:
+24/05/2024, 18:00, 19:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000302, TG190203, 0, Coach Grade3
+BREF_00000302, TG190203, 1, Average at best, 3, Coach Grade3
+********
+Lesson:
+25/05/2024, 14:00, 15:00, 3, Coach Grade3
+Log of Actions:
+BREF_00000320, TG190203, 0, Coach Grade3
+BREF_00000320, TG190203, -1, Coach Grade3
+********
+Lesson:
+25/05/2024, 15:00, 16:00, 3, Coach Grade3
+Learners attending:
+TG190203
+Log of Actions:
+BREF_00000309, TG190203, 0, Coach Grade3
+********
+Lesson:
+27/05/2024, 16:00, 17:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000400, FX160315, 0, Coach Grade4
+BREF_00000400, FX160315, 1, Grade4 is an amazing coach, 5, Coach Grade4
+********
+Lesson:
+27/05/2024, 17:00, 18:00, 4, Coach Grade4
+Log of Actions:
+BREF_00000410, FX160315, 0, Coach Grade4
+BREF_00000410, FX160315, -1, Coach Grade4
+********
+Lesson:
+27/05/2024, 18:00, 19:00, 4, Coach Grade4
+********
+Lesson:
+29/05/2024, 16:00, 17:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000415, FX160315, 0, Coach Grade4
+********
+Lesson:
+29/05/2024, 17:00, 18:00, 4, Coach Grade4
+Log of Actions:
+BREF_00000411, FX160315, 0, Coach Grade4
+BREF_00000411, FX160315, -1, Coach Grade4
+********
+Lesson:
+29/05/2024, 18:00, 19:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000401, FX160315, 0, Coach Grade4
+BREF_00000401, FX160315, 1, Grade4 is still an amazing coach, 5, Coach Grade4
+********
+Lesson:
+31/05/2024, 16:00, 17:00, 4, Coach Grade4
+********
+Lesson:
+31/05/2024, 17:00, 18:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000416, FX160315, 0, Coach Grade4
+********
+Lesson:
+31/05/2024, 18:00, 19:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000402, FX160315, 0, Coach Grade4
+BREF_00000402, FX160315, 1, Grade4 is still an amazing coach!!, 5, Coach Grade4
+********
+Lesson:
+01/06/2024, 14:00, 15:00, 4, Coach Grade4
+********
+Lesson:
+01/06/2024, 15:00, 16:00, 4, Coach Grade4
+Learners attending:
+FX160315
+Log of Actions:
+BREF_00000418, FX160315, 0, Coach Grade4
+********
+Lesson:
+03/06/2024, 16:00, 17:00, 5, Coach Grade5
+Learners attending:
+FI191027
+Log of Actions:
+BREF_00000500, FI191027, 0, Coach Grade5
+BREF_00000500, FI191027, 1, It was so boring, 2, Coach Grade5
+********
+Lesson:
+03/06/2024, 17:00, 18:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000530, FI191027, 0, Coach Grade5
+BREF_00000530, FI191027, -1, Coach Grade5
+********
+Lesson:
+03/06/2024, 18:00, 19:00, 5, Coach Grade5
+Learners attending:
+FI191027
+Log of Actions:
+BREF_00000508, FI191027, 0, Coach Grade5
+********
+Lesson:
+05/06/2024, 16:00, 17:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000530, FI191027, 0, Coach Grade5
+BREF_00000530, FI191027, -1, Coach Grade5
+********
+Lesson:
+05/06/2024, 17:00, 18:00, 5, Coach Grade5
+Learners attending:
+FI191027
+Log of Actions:
+BREF_00000507, FI191027, 0, Coach Grade5
+********
+Lesson:
+05/06/2024, 18:00, 19:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000530, FI191027, 0, Coach Grade5
+BREF_00000530, FI191027, -1, Coach Grade5
+********
+Lesson:
+07/06/2024, 16:00, 17:00, 5, Coach Grade5
+Learners attending:
+WF120701
+Log of Actions:
+BREF_00013232, WF120701, 0, Coach Grade5
+********
+Lesson:
+07/06/2024, 17:00, 18:00, 5, Coach Grade5
+Learners attending:
+FI191027
+Log of Actions:
+BREF_00000506, FI191027, 0, Coach Grade5
+BREF_00000506, FI191027, 1, The coach made it more interesting, 4, Coach Grade5
+********
+Lesson:
+07/06/2024, 18:00, 19:00, 5, Coach Grade5
+********
+Lesson:
+08/06/2024, 14:00, 15:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000511, FI191027, 0, Coach Grade5
+BREF_00000511, FI191027, -1, Coach Grade5
+********
+Lesson:
+08/06/2024, 15:00, 16:00, 5, Coach Grade5
+Learners attending:
+FI191027
+Log of Actions:
+BREF_00000504, FI191027, 0, Coach Grade5
+BREF_00000504, FI191027, -1, Coach Grade5
+BREF_00000530, FI191027, 0, Coach Grade5
+********
+Lesson:
+10/06/2024, 16:00, 17:00, 1, Coach Grade1
+********
+Lesson:
+10/06/2024, 17:00, 18:00, 1, Coach Grade1
+********
+Lesson:
+10/06/2024, 18:00, 19:00, 1, Coach Grade1
+********
+Lesson:
+12/06/2024, 16:00, 17:00, 1, Coach Grade1
+********
+Lesson:
+12/06/2024, 17:00, 18:00, 1, Coach Grade1
+********
+Lesson:
+12/06/2024, 18:00, 19:00, 1, Coach Grade1
+********
+Lesson:
+14/06/2024, 16:00, 17:00, 1, Coach Grade1
+Log of Actions:
+BREF_00000601, FG180519, 0, Coach Grade1
+BREF_00000601, FG180519, -1, Coach Grade1
+********
+Lesson:
+14/06/2024, 17:00, 18:00, 1, Coach Grade1
+Log of Actions:
+BREF_00000601, FG180519, 0, Coach Grade1
+BREF_00000601, FG180519, -1, Coach Grade1
+********
+Lesson:
+14/06/2024, 18:00, 19:00, 1, Coach Grade1
+********
+Lesson:
+15/06/2024, 14:00, 15:00, 1, Coach Grade1
+********
+Lesson:
+15/06/2024, 15:00, 16:00, 1, Coach Grade1
+********
+Lesson:
+17/06/2024, 16:00, 17:00, 2, Coach Grade2
+********
+Lesson:
+17/06/2024, 17:00, 18:00, 2, Coach Grade2
+Log of Actions:
+BREF_00000602, SG170718, 0, Coach Grade2
+BREF_00000602, SG170718, -1, Coach Grade2
+********
+Lesson:
+17/06/2024, 18:00, 19:00, 2, Coach Grade2
+********
+Lesson:
+19/06/2024, 16:00, 17:00, 2, Coach Grade2
+Log of Actions:
+BREF_00000602, SG170718, 0, Coach Grade2
+BREF_00000602, SG170718, -1, Coach Grade2
+********
+Lesson:
+19/06/2024, 17:00, 18:00, 2, Coach Grade2
+********
+Lesson:
+19/06/2024, 18:00, 19:00, 2, Coach Grade2
+********
+Lesson:
+21/06/2024, 16:00, 17:00, 2, Coach Grade2
+********
+Lesson:
+21/06/2024, 17:00, 18:00, 2, Coach Grade2
+********
+Lesson:
+21/06/2024, 18:00, 19:00, 2, Coach Grade2
+********
+Lesson:
+22/06/2024, 14:00, 15:00, 2, Coach Grade2
+********
+Lesson:
+22/06/2024, 15:00, 16:00, 2, Coach Grade2
+********
+Lesson:
+24/06/2024, 16:00, 17:00, 3, Coach Grade3
+********
+Lesson:
+24/06/2024, 17:00, 18:00, 3, Coach Grade3
+Log of Actions:
+BREF_00000603, TG190203, 0, Coach Grade3
+BREF_00000603, TG190203, -1, Coach Grade3
+********
+Lesson:
+24/06/2024, 18:00, 19:00, 3, Coach Grade3
+********
+Lesson:
+26/06/2024, 16:00, 17:00, 3, Coach Grade3
+********
+Lesson:
+26/06/2024, 17:00, 18:00, 3, Coach Grade3
+********
+Lesson:
+26/06/2024, 18:00, 19:00, 3, Coach Grade3
+********
+Lesson:
+28/06/2024, 16:00, 17:00, 3, Coach Grade3
+********
+Lesson:
+28/06/2024, 17:00, 18:00, 3, Coach Grade3
+Log of Actions:
+BREF_00000603, TG190203, 0, Coach Grade3
+BREF_00000603, TG190203, -1, Coach Grade3
+********
+Lesson:
+28/06/2024, 18:00, 19:00, 3, Coach Grade3
+********
+Lesson:
+29/06/2024, 14:00, 15:00, 3, Coach Grade3
+********
+Lesson:
+29/06/2024, 15:00, 16:00, 3, Coach Grade3
+********
+Lesson:
+01/07/2024, 16:00, 17:00, 3, Coach Grade3
+********
+Lesson:
+01/07/2024, 17:00, 18:00, 3, Coach Grade3
+********
+Lesson:
+01/07/2024, 18:00, 19:00, 4, Coach Grade4
+********
+Lesson:
+03/07/2024, 16:00, 17:00, 4, Coach Grade4
+Log of Actions:
+BREF_00000604, FX160315, 0, Coach Grade4
+BREF_00000604, FX160315, -1, Coach Grade4
+********
+Lesson:
+03/07/2024, 17:00, 18:00, 4, Coach Grade4
+Log of Actions:
+BREF_00000604, FX160315, 0, Coach Grade4
+BREF_00000604, FX160315, -1, Coach Grade4
+********
+Lesson:
+03/07/2024, 18:00, 19:00, 4, Coach Grade4
+********
+Lesson:
+05/07/2024, 16:00, 17:00, 4, Coach Grade4
+********
+Lesson:
+05/07/2024, 17:00, 18:00, 4, Coach Grade4
+********
+Lesson:
+05/07/2024, 18:00, 19:00, 4, Coach Grade4
+********
+Lesson:
+06/07/2024, 14:00, 15:00, 4, Coach Grade4
+********
+Lesson:
+06/07/2024, 15:00, 16:00, 4, Coach Grade4
+********
+Lesson:
+08/07/2024, 16:00, 17:00, 5, Coach Grade5
+********
+Lesson:
+08/07/2024, 17:00, 18:00, 5, Coach Grade5
+********
+Lesson:
+08/07/2024, 18:00, 19:00, 5, Coach Grade5
+********
+Lesson:
+10/07/2024, 16:00, 17:00, 5, Coach Grade5
+********
+Lesson:
+10/07/2024, 17:00, 18:00, 5, Coach Grade5
+********
+Lesson:
+10/07/2024, 18:00, 19:00, 5, Coach Grade5
+********
+Lesson:
+12/07/2024, 16:00, 17:00, 5, Coach Grade5
+********
+Lesson:
+12/07/2024, 17:00, 18:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000605, FI191027, 0, Coach Grade5
+BREF_00000605, FI191027, -1, Coach Grade5
+********
+Lesson:
+12/07/2024, 18:00, 19:00, 5, Coach Grade5
+********
+Lesson:
+13/07/2024, 14:00, 15:00, 5, Coach Grade5
+Log of Actions:
+BREF_00000605, FI191027, 0, Coach Grade5
+BREF_00000605, FI191027, -1, Coach Grade5
+********
+Lesson:
+13/07/2024, 15:00, 16:00, 5, Coach Grade5

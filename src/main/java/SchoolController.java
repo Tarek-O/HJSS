@@ -90,7 +90,7 @@ public class SchoolController {
     }
 
     public List<Lesson> getListOfLessonsByCoach(String coachName){
-        return lessonController.getListOfLessonsByCoach(coachName);
+        return lessonController.getListOfLessonsByCoach(coachName.trim());
     }
 
     public HashMap<String, List<Lesson>> getListOfLessonsPerCoach(){
@@ -392,6 +392,16 @@ public class SchoolController {
 
     public List<Lesson> getLearnerAvailableLessonByGrade(Learner learner, int gradeLevel){
         List<Lesson> listOfLesson = getListOfLessonsByGrade(gradeLevel);
+        for(int i = 0 ; i < listOfLesson.size(); i++){
+            try {
+                canLearnerBookLesson(listOfLesson.get(i), learner);
+            }catch (Exception e){listOfLesson.remove(listOfLesson.get(i)); i--;}
+        }
+        return listOfLesson;
+    }
+
+    public List<Lesson> getLearnerAvailableLessonByCoachName(Learner learner, String coachName){
+        List<Lesson> listOfLesson = getListOfLessonsByCoach(coachName.trim());
         for(int i = 0 ; i < listOfLesson.size(); i++){
             try {
                 canLearnerBookLesson(listOfLesson.get(i), learner);

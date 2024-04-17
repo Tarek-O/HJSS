@@ -7,7 +7,7 @@ public class mainExecutable {
     public static void main(String[] args){
         String fileDirectory = "src/main/resources/dataSet.txt";
         controller = new Controller(schoolName);
-        controller.getDataCreation().execute(fileDirectory);
+        controller.createDataFromFile(fileDirectory);
         controller.runMain();
     }
 }

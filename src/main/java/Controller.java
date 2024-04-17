@@ -39,9 +39,6 @@ public class Controller {
         getDataCreation().execute(fileDirectory);
     }
 
-    public void clearScreen() {
-        //Clear
-    }
 
     public void printMenuList(){
         System.out.println(
@@ -60,14 +57,12 @@ public class Controller {
         Scanner scan = new Scanner(System.in);
         int command = -1;
         do{
-            clearScreen();
             printMenuList();
 
             try {
                 command = scan.nextInt();
-                scan.nextLine();
             }catch (Exception e){}
-
+            scan.nextLine();
             if(command == 1)
                 bookLesson();
             else if(command == 2)
@@ -183,7 +178,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     modifyLearnerName();
@@ -198,6 +192,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -267,7 +262,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     modifyLessonCoach();
@@ -278,6 +272,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -291,7 +286,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     modifyLesson();
@@ -302,6 +296,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -342,7 +337,6 @@ public class Controller {
                 }
                 System.out.println("Please enter the lesson grade level: ");
                 int gradeLevel = scan.nextInt();
-                scan.nextLine();
 
                 System.out.println("Please enter the coach name: ");
                 String coachName = scan.nextLine();
@@ -355,6 +349,7 @@ public class Controller {
             }catch (Exception e) {
                 System.err.println(e.getMessage());
             }
+            scan.nextLine();
         }
     }
 
@@ -395,7 +390,6 @@ public class Controller {
 
                 System.out.println("Please enter your grade level: ");
                 int gradeLevel = scan.nextInt();
-                scan.nextLine();
                 Learner learner = new Learner(name, gender, birthDay, phoneNumber, gradeLevel);
                 schoolController.addNewLearner(learner);
                 this.learner = learner;
@@ -405,6 +399,7 @@ public class Controller {
             }catch (Exception e) {
                 System.err.println(e.getMessage());
             }
+            scan.nextLine();
         }
     }
 
@@ -418,7 +413,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     registerLearner();
@@ -429,6 +423,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -452,7 +447,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     getLearnerDetails();
@@ -463,6 +457,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -518,7 +513,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     getLearnerInformation();
@@ -529,6 +523,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -543,7 +538,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1) {
                     getCoachReportByMonth();
@@ -564,45 +558,59 @@ public class Controller {
     public void getCoachReportByMonth(){
         while(true) {
             try {
+                scan.nextLine();
                 System.out.println("Please enter the coach's name:");
                 String coachName = scan.nextLine();
 
                 System.out.println("Please enter the month number and year(E.g. 05/2024):");
                 String userInput = scan.nextLine();
                 String[] dataInput = userInput.trim().split("/");
-                if(dataInput.length != 2) continue;
+                if (dataInput.length != 2) continue;
 
                 int monthNumber = Integer.parseInt(dataInput[0].trim());
-                if(monthNumber < 1 || monthNumber > 12){
+                if (monthNumber < 1 || monthNumber > 12) {
                     System.err.println("You entered an invalid month number.");
                     continue;
                 }
 
                 int yearNumber = Integer.parseInt(dataInput[1].trim());
-                if(yearNumber < 1970){
+                if (yearNumber < 1970) {
                     System.err.println("You entered an invalid year. Entry should not be less than 1970.");
                     continue;
                 }
 
                 System.out.println(coachName + "'s ratings for that month are:");
                 List<LessonEvent> lessonEvents = schoolController.getCoachLessonsEventsByMonth(coachName, monthNumber, yearNumber);
-                if(lessonEvents.isEmpty())
+                if (lessonEvents.isEmpty()){
                     System.out.println("No results found.");
-                else {
+                    return;
+                }else {
                     double average = 0;
-                    int size = 0;
-                    String printAverage = "";
-                    for (int i = 0; i < lessonEvents.size(); i++){
+                    List<Double> listOfRatings = new ArrayList<>();
+                    for (int i = 1; i < lessonEvents.size(); i++){
                         if(lessonEvents.get(i).getStatus() == 1) {
-                            if(!printAverage.equals(""))
-                                System.out.print(", ");
-                            printAverage = printAverage + lessonEvents.get(i).getRating();
+                            listOfRatings.add((double) lessonEvents.get(i).getRating());
                             average += lessonEvents.get(i).getRating();
-                            size++;
                         }
                     }
-                    System.out.println(printAverage.trim());
-                    average = average / size;
+
+                    if(listOfRatings.isEmpty()){
+                        System.out.println("No results found.");
+                        return;
+                    }
+                    StringBuilder printAverage = new StringBuilder();
+                    for (int i = 0 ; i < listOfRatings.size() - 1; i++){
+                        if(i == 0){
+                            printAverage.append(listOfRatings.get(i));
+                        }else{
+                            printAverage.append(", ").append(listOfRatings.get(i));
+                        }
+                    }
+                    if(listOfRatings.size() - 1 > 0){
+                        printAverage.append(", ").append(listOfRatings.getLast());
+                    }
+                    System.out.println(printAverage);
+                    average = average / listOfRatings.size();
                     System.out.println("The average is: " + average);
                 }
                 return;
@@ -633,7 +641,7 @@ public class Controller {
                     return;
                 }
 
-                System.out.println("The list of lessons assinged to coach are:");
+                System.out.println("The list of lessons assigned to coach are:");
                 for(int i = 0 ; i < listOfLessons.size(); i++){
                     System.out.println(listOfLessons.get(i).printFormalLessonInfo());
                 }
@@ -652,7 +660,6 @@ public class Controller {
                             "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1){
                     getMonthlyLearnerReport();
@@ -662,6 +669,7 @@ public class Controller {
                 return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -702,6 +710,7 @@ public class Controller {
 
     public void getAllLearnersMonthlyReport(){
         while(true) {
+            scan.nextLine();
             System.out.println("Please enter the month number and year(E.g. 5/2024):");
             try {
                 String userInput = scan.nextLine();
@@ -768,10 +777,9 @@ public class Controller {
             System.out.println("N/A");
         }else {
             for (int i = 0; i < numberOfCanceledLessons; i++) {
-                System.out.println(listOfCanceledLessons.get(i).printFormalLessonInfo().indent(4));
+                System.out.print(listOfCanceledLessons.get(i).printFormalLessonInfo().indent(4));
             }
         }
-        System.out.println();
         double averageRating = -1;
         System.out.println("List of attended lessons:");
         if(numberOfAttendedLessons == 0){
@@ -779,8 +787,8 @@ public class Controller {
         }else {
             averageRating = 0;
             for (Map.Entry<Lesson, LessonEvent> entry : listOfAttendedLessons.entrySet()) {
-                System.out.println(entry.getKey().printFormalLessonInfo().indent(4));
-                System.out.println(("Feedback by learner: " + " comment: " + entry.getValue().getComment() + " | Rating: " + entry.getValue().getRating()).indent(4));
+                System.out.print(entry.getKey().printFormalLessonInfo().indent(4));
+                System.out.print(("Feedback by learner: " + " comment: " + entry.getValue().getComment() + " | Rating: " + entry.getValue().getRating()).indent(4));
                 averageRating += entry.getValue().getRating();
             }
             averageRating = averageRating / numberOfAttendedLessons;
@@ -791,7 +799,7 @@ public class Controller {
             System.out.println("N/A");
         }else {
             for (int i = 0; i < listOfBookedLessons.size(); i++) {
-                System.out.println(listOfBookedLessons.get(i).printFormalLessonInfo().indent(4));
+                System.out.print(listOfBookedLessons.get(i).printFormalLessonInfo().indent(4));
             }
         }
         String print = "";
@@ -819,7 +827,6 @@ public class Controller {
                                         "0. Exit\n");
             try {
                 userChoice = scan.nextInt();
-                scan.nextLine();
                 if(userChoice == 0) return;
                 else if(userChoice == 1){
                     getAllLearnersMonthlyReport();
@@ -830,6 +837,7 @@ public class Controller {
                     return;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
     }
 
@@ -865,11 +873,11 @@ public class Controller {
             try{
                 System.out.println("Please rate the lesson using 1-5 scale, where 1 is the lowest rating and 5 is the highest:");
                 rating = scan.nextInt();
-                scan.nextLine();
                 if(rating <= 5 && rating >= 1){
                     flag = false;
                 }
             }catch (Exception e){}
+            scan.nextLine();
         }
 
 
@@ -914,7 +922,6 @@ public class Controller {
 
             try{
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if(userInput == 0) return;
                 if(userInput == 1){
                     changeBooking();
@@ -1013,7 +1020,9 @@ public class Controller {
                 if (userInput.equalsIgnoreCase("n")){
                     learner = getLearner();
                     return;
-                }else return;
+                }else if(userInput.equalsIgnoreCase("y")){
+                    return;
+                }
             }catch (Exception e){System.out.println(e.getMessage());}
         }
         learner = getLearner();
@@ -1070,16 +1079,16 @@ public class Controller {
         while(true){
             System.out.println("Multiple learners found with same IDs. Please verify the learner information:");
             for(int i = 0; i < listOfLearner.size(); i++){
-                System.out.println(((i+1) + ". " + listOfLearner.get(i).printLearner()).indent(4));
+                System.out.print(((i+1) + ". " + listOfLearner.get(i).printLearner()).indent(4));
             }
             System.out.println("Select learner number: (Use -1 to exit)");
             try {
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if (userInput == -1) return null;
                 if((userInput < listOfLearner.size() + 1 && userInput > 0))
                     return listOfLearner.get(userInput - 1);
             }catch (Exception e){ System.err.println("You entered an invalid selection.");}
+            scan.nextLine();
         }
     }
 
@@ -1098,7 +1107,6 @@ public class Controller {
             );
             try{
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if (userInput == 0) return null;
                 else if(userInput == 1){
                     return getLessonLearnerBookedById(learner);
@@ -1114,6 +1122,7 @@ public class Controller {
                     System.err.println("You entered an invalid option.");
                 }
             }catch (Exception e){System.err.println("An error has occurred.");}
+            scan.nextLine();
         }
     }
 
@@ -1148,6 +1157,7 @@ public class Controller {
     public Lesson getLessonLearnerBookedByGrade(Learner learner){
         while(true){
             try {
+                scan.nextLine();
                 System.out.println("The learner is grade : " + learner.getGradeLevel() + ". Please select a grade level (possible grades are: " + learner.getGradeLevel() + " and " + (learner.getGradeLevel() + 1) + "):");
                 String userInput = scan.nextLine();
                 int gradeLevel = Integer.parseInt(userInput);
@@ -1214,7 +1224,6 @@ public class Controller {
             );
             try{
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if (userInput == 0) return null;
                 else if(userInput == 1){
                     return getLessonLearnerBookedNotAttendedById(learner);
@@ -1229,8 +1238,8 @@ public class Controller {
                 }else {
                     System.err.println("You entered an invalid option.");
                 }
-
             }catch (Exception e){System.err.println("An error has occurred.");}
+            scan.nextLine();
         }
     }
 
@@ -1265,6 +1274,7 @@ public class Controller {
     public Lesson getLessonLearnerBookedNotAttendedByGrade(Learner learner){
         while(true){
             try {
+                scan.nextLine();
                 System.out.println("The learner is grade : " + learner.getGradeLevel() + ". Please select a grade level (possible grades are: " + learner.getGradeLevel() + " and " + (learner.getGradeLevel() + 1) + "):");
                 String userInput = scan.nextLine();
                 int gradeLevel = Integer.parseInt(userInput);
@@ -1327,11 +1337,11 @@ public class Controller {
                             "3. Find a lesson using the grade\n" +
                             "4. Find a lesson using the day of the week\n" +
                             "5. Find a lesson using the month\n" +
+                            "6. Find a lesson using the coach name\n" +
                             "0. Exit\n"
             );
             try{
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if (userInput == 0) return null;
                 else if(userInput == 1){
                     return getLessonLearnerById(learner);
@@ -1343,12 +1353,21 @@ public class Controller {
                     return getLessonLearnerByDayName(learner);
                 }else if(userInput == 5){
                     return getLessonLearnerByMonth(learner);
+                }else if(userInput == 6){
+                    return getLessonLearnerByCoachName(learner);
                 }else {
                     System.err.println("You entered an invalid option.");
                 }
-
             }catch (Exception e){System.err.println("An error has occurred.");}
+            scan.nextLine();
         }
+    }
+
+    public Lesson getLessonLearnerByCoachName(Learner learner){
+        scan.nextLine();
+        System.out.println("Please enter the coach name (E.g. John Doe):");
+        String coachName = scan.nextLine();
+        return selectLessonFromList(schoolController.getLearnerAvailableLessonByCoachName(learner, coachName));
     }
 
     public Lesson getLessonLearnerByMonth(Learner learner){
@@ -1382,6 +1401,7 @@ public class Controller {
     public Lesson getLessonLearnerByGrade(Learner learner){
         while(true){
             try {
+                scan.nextLine();
                 System.out.println("The learner is grade : " + learner.getGradeLevel() + ". Please select a grade level (possible grades are: " + learner.getGradeLevel() + " and " + (learner.getGradeLevel() + 1) + "):");
                 String userInput = scan.nextLine();
                 int gradeLevel = Integer.parseInt(userInput);
@@ -1448,7 +1468,6 @@ public class Controller {
             );
             try{
                 userInput = scan.nextInt();
-                scan.nextLine();
                 if(userInput == 0) return null;
                 else if(userInput == 1){
                     return getLessonById();
@@ -1464,6 +1483,7 @@ public class Controller {
                     System.err.println("You entered an invalid option.");
                 }
             }catch (Exception e){System.err.println("An error has occurred.");}
+            scan.nextLine();
         }
     }
 
@@ -1528,6 +1548,7 @@ public class Controller {
     }
 
     public Lesson getLessonByGrade(){
+            scan.nextLine();
             System.out.println("Please enter a grade level (E.g. 3):");
             String userInput = scan.nextLine();
             return selectLessonFromList(schoolController.getListOfLessonsByGrade(Integer.parseInt(userInput.trim())));
@@ -1539,18 +1560,23 @@ public class Controller {
         if(listOfLessons.size() == 1) return listOfLessons.getFirst();
         while(true) {
             System.out.println("Multiple lessons found through the search. Please select the correct lesson:");
+
+            listOfLessons.sort(Comparator.comparing(Lesson::getDateOfLesson));
+
             for (int i = 0; i < listOfLessons.size(); i++) {
-                System.out.println(((i + 1) + ". " + listOfLessons.get(i).printLesson()).indent(4));
+                System.out.print(((i + 1) + ". " + listOfLessons.get(i).printLesson()).indent(4));
             }
             System.out.println("Select lesson number: (Use -1 to exit)");
-            int userInput = scan.nextInt();
+            try {
+                int userInput = scan.nextInt();
+                if (userInput == -1) return null;
+                if (userInput < listOfLessons.size() + 1 && userInput > 0) {
+                    return listOfLessons.get(userInput - 1);
+                } else {
+                    System.err.println("You entered an invalid option.");
+                }
+            }catch (Exception e){}
             scan.nextLine();
-            if(userInput == -1) return null;
-            if(userInput < listOfLessons.size() + 1 && userInput > 0){
-                return listOfLessons.get(userInput-1);
-            }else {
-                System.err.println("You entered an invalid option.");
-            }
         }
     }
 
@@ -1583,7 +1609,6 @@ public class Controller {
     }
 
     public void exitMessage(){
-        clearScreen();
         System.out.println("Exiting program! Thank you for using " + getProgramName());
     }
 

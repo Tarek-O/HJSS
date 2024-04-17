@@ -60,8 +60,11 @@ public class Learner {
         this.name = name;
     }
 
-    public boolean getGender() {
-        return gender;
+    public String getGender() {
+        if(gender){
+            return "Male";
+        }
+        return "Female";
     }
 
     /**

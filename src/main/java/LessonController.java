@@ -134,7 +134,7 @@ public class LessonController{
     public List<Lesson> getListOfLessonsByCoach(String coachName){
         List<Lesson> resultList = new ArrayList<Lesson>();
         for (Map.Entry<String, Lesson> set : getMapOfLessons().entrySet()) {
-            if(set.getValue().getCoachName().equals(coachName))
+            if(set.getValue().getCoachName().trim().equals(coachName))
                 resultList.add(set.getValue());
         }
         return resultList;

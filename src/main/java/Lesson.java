@@ -156,10 +156,10 @@ public class Lesson {
     }
 
     public String printFormalLessonInfo(){
-        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ".";
+        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + getDateOfLesson().getDayOfWeek().name().charAt(0) + getDateOfLesson().getDayOfWeek().name().substring(1).toLowerCase()  + " " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ".";
     }
 
     public String printLesson(){
-        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ", Number of remaining slots: " + (maxNumberOfLearners - getListOfLearners().size()) + ".";
+        return "ID: " + getId()  + ", Grade: " + getGradeLevel() + ", Date: " + getDateOfLesson().getDayOfWeek().name().charAt(0)  + getDateOfLesson().getDayOfWeek().name().substring(1).toLowerCase() + " " + printDate() + " " + getStartTime() + " till " + getEndTime() + ", Coach Name: " + getCoachName() + ", Number of remaining slots: " + (maxNumberOfLearners - getListOfLearners().size()) + ".";
     }
 }
