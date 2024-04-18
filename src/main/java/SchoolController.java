@@ -15,7 +15,11 @@ public class SchoolController {
     private final double maxHoursPerClass = 1;
     private final int maxNumberOfLearnerPerClass = 4;
     private Learner deletedLearnerMock;
-    SchoolController(){}
+    SchoolController(){
+        try {
+            deletedLearnerMock = new Learner("DELETED LEARNER", "M", LocalDate.now(), "07570492050", 1);
+        }catch (Exception e){}
+    }
     SchoolController(LearnerController learnerController, LessonController lessonController){
         setLearnerController(learnerController);
         setLessonController(lessonController);
@@ -194,6 +198,7 @@ public class SchoolController {
     }
 
     public Learner getLearnerByID(String id){
+        if(id.equals(deletedLearnerMock.getId())) return deletedLearnerMock;
         return learnerController.getLearnerByID(id);
     }
 
@@ -242,8 +247,7 @@ public class SchoolController {
             if(listOfLesson.get(i).getListOfLearners().isEmpty()){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
-            }
-            if(!listOfLesson.get(i).getListOfLearners().contains(learner.getId())){
+            }else if(!listOfLesson.get(i).getListOfLearners().contains(learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
             }else if(hasLearnerAttendedLesson(listOfLesson.get(i).getId(), learner.getId())) {
@@ -272,11 +276,18 @@ public class SchoolController {
         return listOfLesson;
     }
 
-    public Lesson getLearnerBookedLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
-        Lesson lesson = getLessonByDate(lessonDate);
-        if(!lesson.getListOfLearners().contains(learner.getId())) return null;
-        if(hasLearnerAttendedLesson(lesson.getId(), learner.getId())) return null;
-        return lesson;
+    public List<Lesson> getLearnerBookedLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
+        List<Lesson> listOfLessons = getLessonByDate(lessonDate);
+        for(int i = 0 ; i < listOfLessons.size(); i++){
+            if(!listOfLessons.get(i).getListOfLearners().contains(learner.getId())){
+                listOfLessons.remove(i);
+                i--;
+            }else if(hasLearnerAttendedLesson(listOfLessons.get(i).getId(), learner.getId())) {
+                listOfLessons.remove(i);
+                i--;
+            }
+        }
+        return listOfLessons;
     }
 
     public boolean hasLessonBeenAttended(Lesson lesson){
@@ -290,7 +301,7 @@ public class SchoolController {
             return null;
         }
         if(!inputLesson.getListOfLearners().contains(inputLearner.getId())) return null;
-        if(hasLessonBeenAttended(inputLesson)) return null;
+        if(hasLearnerAttendedLesson(inputLesson.getId(), inputLearner.getId())) return null;
 
         return inputLesson;
     }
@@ -306,7 +317,7 @@ public class SchoolController {
             else if(!listOfLesson.get(i).getListOfLearners().contains(learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
-            }else if(hasLessonBeenAttended(listOfLesson.get(i))) {
+            }else if(hasLearnerAttendedLesson(listOfLesson.get(i).getId(), learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
             }
@@ -314,7 +325,7 @@ public class SchoolController {
         return listOfLesson;
     }
 
-    public List<Lesson> getLearnerBookedNotAttendedLessonByDayName(Learner learner, String dayName){
+    public List<Lesson> getLearnerBookedNotAttendedLessonByDayName(Learner learner, String dayName) throws Exception {
         List<Lesson> listOfLesson = getListOfLessonsByDayName(dayName);
         for(int i = 0 ; i < listOfLesson.size(); i++){
             if(listOfLesson.get(i).getListOfLearners().isEmpty()){
@@ -324,7 +335,7 @@ public class SchoolController {
             else if(!listOfLesson.get(i).getListOfLearners().contains(learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
-            }else if(hasLessonBeenAttended(listOfLesson.get(i))) {
+            }else if(hasLearnerAttendedLesson(listOfLesson.get(i).getId(), learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
             }
@@ -332,7 +343,7 @@ public class SchoolController {
         return listOfLesson;
     }
 
-    public List<Lesson> getLearnerBookedNotAttendedLessonByGrade(Learner learner, int gradeLevel){
+    public List<Lesson> getLearnerBookedNotAttendedLessonByGrade(Learner learner, int gradeLevel) throws Exception {
         List<Lesson> listOfLesson = getListOfLessonsByGrade(gradeLevel);
         for(int i = 0 ; i < listOfLesson.size(); i++){
             if(listOfLesson.get(i).getListOfLearners().isEmpty()){
@@ -342,7 +353,7 @@ public class SchoolController {
             else if(!listOfLesson.get(i).getListOfLearners().contains(learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
-            }else if(hasLessonBeenAttended(listOfLesson.get(i))) {
+            }else if(hasLearnerAttendedLesson(listOfLesson.get(i).getId(), learner.getId())){
                 listOfLesson.remove(listOfLesson.get(i));
                 i--;
             }
@@ -350,10 +361,17 @@ public class SchoolController {
         return listOfLesson;
     }
 
-    public Lesson getLearnerBookedNotAttendedLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
-        Lesson lesson = getLessonByDate(lessonDate);
-        if(!lesson.getListOfLearners().contains(learner.getId())) return null;
-        if(hasLessonBeenAttended(lesson)) return null;
+    public List<Lesson> getLearnerBookedNotAttendedLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
+        List<Lesson> lesson = getLessonByDate(lessonDate);
+        for(int i = 0 ; i < lesson.size(); i++){
+            if(!lesson.get(i).getListOfLearners().contains(learner.getId())) {
+                lesson.remove(i);
+                i--;
+            }else if(hasLearnerAttendedLesson(lesson.get(i).getId(), learner.getId())){
+                lesson.remove(lesson.get(i));
+                i--;
+            }
+        }
         return lesson;
     }
 
@@ -364,7 +382,9 @@ public class SchoolController {
         if(inputLesson == null || inputLearner == null){
             return null;
         }
-
+        if(hasLessonBeenAttended(inputLesson)){
+            return null;
+        }
         canLearnerBookLesson(inputLesson, inputLearner);
 
         return inputLesson;
@@ -374,7 +394,12 @@ public class SchoolController {
         List<Lesson> listOfLesson = getListOfLessonsByMonth(month, year);
         for(int i = 0 ; i < listOfLesson.size(); i++){
             try {
-                canLearnerBookLesson(listOfLesson.get(i), learner);
+                if(hasLessonBeenAttended(listOfLesson.get(i))){
+                    listOfLesson.remove(i);
+                    i--;
+                }else{
+                    canLearnerBookLesson(listOfLesson.get(i), learner);
+                }
             }catch (Exception e){listOfLesson.remove(listOfLesson.get(i)); i--;}
         }
         return listOfLesson;
@@ -384,7 +409,12 @@ public class SchoolController {
         List<Lesson> listOfLesson = getListOfLessonsByDayName(dayName);
         for(int i = 0 ; i < listOfLesson.size(); i++){
             try {
-                canLearnerBookLesson(listOfLesson.get(i), learner);
+                if(hasLessonBeenAttended(listOfLesson.get(i))){
+                    listOfLesson.remove(i);
+                    i--;
+                }else{
+                    canLearnerBookLesson(listOfLesson.get(i), learner);
+                }
             }catch (Exception e){listOfLesson.remove(listOfLesson.get(i)); i--;}
         }
         return listOfLesson;
@@ -394,7 +424,12 @@ public class SchoolController {
         List<Lesson> listOfLesson = getListOfLessonsByGrade(gradeLevel);
         for(int i = 0 ; i < listOfLesson.size(); i++){
             try {
-                canLearnerBookLesson(listOfLesson.get(i), learner);
+                if(hasLessonBeenAttended(listOfLesson.get(i))){
+                    listOfLesson.remove(i);
+                    i--;
+                }else{
+                    canLearnerBookLesson(listOfLesson.get(i), learner);
+                }
             }catch (Exception e){listOfLesson.remove(listOfLesson.get(i)); i--;}
         }
         return listOfLesson;
@@ -404,15 +439,32 @@ public class SchoolController {
         List<Lesson> listOfLesson = getListOfLessonsByCoach(coachName.trim());
         for(int i = 0 ; i < listOfLesson.size(); i++){
             try {
-                canLearnerBookLesson(listOfLesson.get(i), learner);
+                if(hasLessonBeenAttended(listOfLesson.get(i))){
+                    listOfLesson.remove(i);
+                    i--;
+                }else{
+                    canLearnerBookLesson(listOfLesson.get(i), learner);
+                }
             }catch (Exception e){listOfLesson.remove(listOfLesson.get(i)); i--;}
         }
         return listOfLesson;
     }
 
-    public Lesson getLearnerAvailableLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
-        Lesson lesson = getLessonByDate(lessonDate);
-        canLearnerBookLesson(lesson, learner);
+    public List<Lesson> getLearnerAvailableLessonByDate(Learner learner, LocalDate lessonDate) throws Exception {
+        List<Lesson> lesson = getLessonByDate(lessonDate);
+        for(int i = 0 ; i < lesson.size(); i++){
+            try {
+                if(hasLessonBeenAttended(lesson.get(i))){
+                    lesson.remove(i);
+                    i--;
+                }else{
+                    canLearnerBookLesson(lesson.get(i), learner);
+                }
+            }catch (Exception e){
+                lesson.remove(i);
+                i--;
+            }
+        }
         return lesson;
     }
 
@@ -429,10 +481,10 @@ public class SchoolController {
         return true;
     }
 
-    public Lesson getLessonByDate(LocalDate localDate) throws Exception {
-        Lesson lesson = lessonController.getLessonByDate(localDate);
-        if(lesson == null) throw new Exception("No lesson is registered with such date.");
-        return lesson;
+    public List<Lesson> getLessonByDate(LocalDate localDate) throws Exception {
+        List<Lesson> listOfLesson = lessonController.getLessonByDate(localDate);
+        if(listOfLesson.isEmpty()) throw new Exception("No lesson is registered with such date.");
+        return listOfLesson;
     }
 
     /**

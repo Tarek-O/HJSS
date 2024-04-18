@@ -54,7 +54,7 @@ class LearnerTest {
         String gender = "M";
         try {
             Learner learner = new Learner("name", gender, localDateNow, "07570123123", 1);
-            assertTrue(learner.getGender());
+            assertTrue(learner.getGender().equalsIgnoreCase("Male"));
         }catch (Exception e){
             fail();
         }
@@ -67,7 +67,7 @@ class LearnerTest {
         String gender = "1";
         try {
             Learner learner = new Learner("name", gender, localDateNow, "07570123123", 1);
-            assertTrue(learner.getGender());
+            assertTrue(learner.getGender().equalsIgnoreCase("male"));
         }catch (Exception e){
             fail();
         }
@@ -80,7 +80,7 @@ class LearnerTest {
         String gender = "Male";
         try {
             Learner learner = new Learner("name", gender, localDateNow, "07570123123", 1);
-            assertTrue(learner.getGender());
+            assertTrue(learner.getGender().equalsIgnoreCase("Male"));
         }catch (Exception e){
             fail();
         }
@@ -93,7 +93,7 @@ class LearnerTest {
         String gender = "2131231";
         try {
             Learner learner = new Learner("name", gender, localDateNow, "07570123123", 1);
-            assertFalse(learner.getGender());
+            assertTrue(learner.getGender().equalsIgnoreCase("Female"));
         }catch (Exception e){
             fail();
         }

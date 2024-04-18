@@ -100,7 +100,7 @@ public class Controller {
                         learner = null;
                         System.out.println("The learner's name has been deleted successfully.");
                         System.out.println();
-                    }catch (Exception e){System.err.println("An error has occurred.");}
+                    }catch (Exception e){System.err.println(e.getMessage());}
                     flag = false;
                 }else if (userInput.equalsIgnoreCase("n")) {
                     flag = false;
@@ -257,7 +257,7 @@ public class Controller {
         while(true){
             System.out.println(
                     "Please select an action:\n"+
-                            "1. Modify lesson's coach'\n"+
+                            "1. Modify lesson's coach\n"+
                             "2. Delete lesson\n"+
                             "0. Exit\n");
             try {
@@ -301,6 +301,7 @@ public class Controller {
     }
 
     public void registerLesson(){
+        scan.nextLine();
         while(true){
             try {
                 System.out.println("Registering new lesson\n" +
@@ -337,7 +338,7 @@ public class Controller {
                 }
                 System.out.println("Please enter the lesson grade level: ");
                 int gradeLevel = scan.nextInt();
-
+                scan.nextLine();
                 System.out.println("Please enter the coach name: ");
                 String coachName = scan.nextLine();
 
@@ -348,13 +349,14 @@ public class Controller {
                 return;
             }catch (Exception e) {
                 System.err.println(e.getMessage());
+                return;
             }
-            scan.nextLine();
         }
     }
 
     public void registerLearner(){
         while(true){
+            scan.nextLine();
             try {
                 System.out.println("Registering new learner\n" +
                         "Please enter your name:");
@@ -398,8 +400,8 @@ public class Controller {
                 return;
             }catch (Exception e) {
                 System.err.println(e.getMessage());
+                return;
             }
-            scan.nextLine();
         }
     }
 
@@ -479,7 +481,7 @@ public class Controller {
         }
         try {
             HashMap<Lesson, List<LessonEvent>> listOfLessonsAndEvents = schoolController.getLearnerHistory(learner.getId());
-            System.out.println(learner.getName() + "'s booked lessons:");
+            System.out.println(learner.getName() + "'s booked and attended lessons:");
             List<Lesson> listOfBookedLessons = schoolController.getListOfLessonsByLearner(learner.getId());
             for(int i = 0 ; i < listOfBookedLessons.size(); i++){
                 System.out.print((listOfBookedLessons.get(i).printFormalLessonInfo() + "\n").indent(4));
@@ -587,7 +589,7 @@ public class Controller {
                 }else {
                     double average = 0;
                     List<Double> listOfRatings = new ArrayList<>();
-                    for (int i = 1; i < lessonEvents.size(); i++){
+                    for (int i = 0; i < lessonEvents.size(); i++){
                         if(lessonEvents.get(i).getStatus() == 1) {
                             listOfRatings.add((double) lessonEvents.get(i).getRating());
                             average += lessonEvents.get(i).getRating();
@@ -597,21 +599,15 @@ public class Controller {
                     if(listOfRatings.isEmpty()){
                         System.out.println("No results found.");
                         return;
-                    }
-                    StringBuilder printAverage = new StringBuilder();
-                    for (int i = 0 ; i < listOfRatings.size() - 1; i++){
-                        if(i == 0){
-                            printAverage.append(listOfRatings.get(i));
-                        }else{
-                            printAverage.append(", ").append(listOfRatings.get(i));
+                    }else {
+                        StringBuilder printAverage = new StringBuilder();
+                        for (int i = 0; i < listOfRatings.size(); i++) {
+                            printAverage.append(listOfRatings.get(i)).append(", ");
                         }
+                        System.out.println(printAverage.substring(0, printAverage.lastIndexOf(", ")));
+                        average = average / listOfRatings.size();
+                        System.out.println("The average is: " + average);
                     }
-                    if(listOfRatings.size() - 1 > 0){
-                        printAverage.append(", ").append(listOfRatings.getLast());
-                    }
-                    System.out.println(printAverage);
-                    average = average / listOfRatings.size();
-                    System.out.println("The average is: " + average);
                 }
                 return;
             }catch (Exception e){System.err.println("An error has occurred.");}
@@ -746,7 +742,7 @@ public class Controller {
                     System.out.println("*****");
                 }
                 return;
-            }catch (Exception e){System.err.println("An error has occurred.");}
+            }catch (Exception e){System.err.println(e.getMessage());}
         }
 
     }
@@ -860,6 +856,7 @@ public class Controller {
         boolean flag = true;
         while(flag){
             try{
+                scan.nextLine();
                 System.out.println("Please submit any feedback regarding the lesson:");
                 comment = scan.nextLine();
                 if(comment.isEmpty() || comment.isBlank())
@@ -883,7 +880,7 @@ public class Controller {
 
         System.out.println("Are you sure you want to attend the lesson. Warning: if you are promoted, your invalid bookings will be canceled! (y/n):"+
                 "\nLearner: " + learner.getLearnerId() + " : " + learner.getName() +
-                "\nLesson: " + lesson.getId() + " : " + lesson.printDate() +
+                "\nLesson: " + lesson.printFormalLessonInfo() +
                 "\nComment: " + comment +
                 "\nRating: " + rating);
         flag = true;
@@ -951,7 +948,7 @@ public class Controller {
         boolean flag = true;
         while(flag) {
             try{
-                System.out.println("Are you sure you want to cancel the booking (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + lesson.getId() + " : " + lesson.printDate());
+                System.out.println("Are you sure you want to cancel the booking (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + lesson.printFormalLessonInfo());
                 String userInput = scan.next();
                 scan.nextLine();
                 if (userInput.equalsIgnoreCase("y")) {
@@ -989,7 +986,7 @@ public class Controller {
             return;
         }
 
-        System.out.println("Are you sure you want to change the booking to (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + newLesson.getId() + " : " + newLesson.printDate());
+        System.out.println("Are you sure you want to change the booking to (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + newLesson.printFormalLessonInfo());
         boolean flag = true;
         while(flag) {
             try{
@@ -1041,7 +1038,7 @@ public class Controller {
             return;
         }
 
-        System.out.println("Are you sure you want to book the lesson (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + lesson.getId() + " : " + lesson.printDate());
+        System.out.println("Are you sure you want to book the lesson (y/n):\nLearner: " + learner.getLearnerId() + " : " + learner.getName() + "\nLesson: " + lesson.printLesson());
         boolean flag = true;
         while(flag) {
             try{
@@ -1127,6 +1124,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerBookedByMonth(Learner learner){
+        scan.nextLine();
         LocalDate localDateNow = LocalDate.now();
         List<Lesson> listOfLesson;
         while(true) {
@@ -1148,10 +1146,10 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerBookedByDayName(Learner learner) throws Exception {
-        System.out.println("Please enter the day name (E.g. Wednesday):");
-        String dayName = scan.next();
         scan.nextLine();
-        return selectLessonFromList(schoolController.getLearnerBookedLessonByDayName(learner, dayName));
+        System.out.println("Please enter the day name (E.g. Wednesday):");
+        String dayName = scan.nextLine();
+        return selectLessonFromList(schoolController.getLearnerBookedLessonByDayName(learner, dayName.trim()));
     }
 
     public Lesson getLessonLearnerBookedByGrade(Learner learner){
@@ -1171,6 +1169,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerBookedByDate(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson date (E.g. 31/5/2024): ");
         String userInput = scan.nextLine();
         String[] dateInput = userInput.trim().split("/");
@@ -1191,12 +1190,13 @@ public class Controller {
         }
         try{
             LocalDate localDate = LocalDate.of(yearNumber, monthNumber, dayNumber);
-            return schoolController.getLearnerBookedLessonByDate(learner,localDate);
+            return selectLessonFromList(schoolController.getLearnerBookedLessonByDate(learner,localDate));
         }catch (Exception e){System.err.println(e.getMessage());};
         return null;
     }
 
     public Lesson getLessonLearnerBookedById(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson Id: ");
         String lessonId = scan.next();
         scan.nextLine();
@@ -1244,6 +1244,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerBookedNotAttendedByMonth(Learner learner){
+        scan.nextLine();
         LocalDate localDateNow = LocalDate.now();
         List<Lesson> listOfLesson;
         while(true) {
@@ -1264,7 +1265,8 @@ public class Controller {
         }
     }
 
-    public Lesson getLessonLearnerBookedNotAttendedByDayName(Learner learner){
+    public Lesson getLessonLearnerBookedNotAttendedByDayName(Learner learner) throws Exception {
+        scan.nextLine();
         System.out.println("Please enter the day name (E.g. Wednesday):");
         String dayName = scan.next();
         scan.nextLine();
@@ -1288,6 +1290,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerBookedNotAttendedByDate(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson date (E.g. 31/5/2024): ");
         String userInput = scan.nextLine();
         String[] dateInput = userInput.trim().split("/");
@@ -1308,12 +1311,13 @@ public class Controller {
         }
         try{
             LocalDate localDate = LocalDate.of(yearNumber, monthNumber, dayNumber);
-            return schoolController.getLearnerBookedNotAttendedLessonByDate(learner,localDate);
+            return selectLessonFromList(schoolController.getLearnerBookedNotAttendedLessonByDate(learner,localDate));
         }catch (Exception e){System.err.println(e.getMessage());};
         return null;
     }
 
     public Lesson getLessonLearnerBookedNotAttendedById(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson Id: ");
         String lessonId = scan.next();
         scan.nextLine();
@@ -1371,6 +1375,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerByMonth(Learner learner){
+        scan.nextLine();
         LocalDate localDateNow = LocalDate.now();
         List<Lesson> listOfLesson;
         while(true) {
@@ -1392,6 +1397,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerByDayName(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter the day name (E.g. Wednesday):");
         String dayName = scan.next();
         scan.nextLine();
@@ -1415,6 +1421,7 @@ public class Controller {
     }
 
     public Lesson getLessonLearnerByDate(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson date (E.g. 31/5/2024): ");
         String userInput = scan.nextLine();
         String[] dateInput = userInput.trim().split("/");
@@ -1435,13 +1442,14 @@ public class Controller {
         }
         try{
             LocalDate localDate = LocalDate.of(yearNumber, monthNumber, dayNumber);
-            return schoolController.getLearnerAvailableLessonByDate(learner, localDate);
+            return selectLessonFromList(schoolController.getLearnerAvailableLessonByDate(learner, localDate));
         }catch (Exception e){System.err.println(e.getMessage());};
         return null;
 
     }
 
     public Lesson getLessonLearnerById(Learner learner){
+        scan.nextLine();
         System.out.println("Please enter lesson Id: ");
         String lessonId = scan.next();
         scan.nextLine();
@@ -1488,6 +1496,7 @@ public class Controller {
     }
 
     public Lesson getLessonById(){
+        scan.nextLine();
         System.out.println("Please enter lesson Id: ");
         String lessonId = scan.next();
         scan.nextLine();
@@ -1500,6 +1509,7 @@ public class Controller {
     }
 
     public Lesson getLessonByDate(){
+        scan.nextLine();
         System.out.println("Please enter lesson date (E.g. 31/5/2024): ");
         String userInput = scan.nextLine();
         String[] dateInput = userInput.trim().split("/");
@@ -1520,7 +1530,7 @@ public class Controller {
         }
         try{
             LocalDate localDate = LocalDate.of(yearNumber, monthNumber, dayNumber);
-            return schoolController.getLessonByDate(localDate);
+            return selectLessonFromList(schoolController.getLessonByDate(localDate));
         }catch (Exception e){System.err.println(e.getMessage());};
         return null;
     }
@@ -1536,13 +1546,17 @@ public class Controller {
         if(startHour < 0) throw new Exception("Invalid time entry");
         String startHourResult = "";
         if(startHour < 10){
-            startHourResult = "0" + startHour;
+            startHourResult = "0" + String.valueOf(startHour);
+        }else{
+            startHourResult = String.valueOf(startHour);
         }
         int startMinute = Integer.parseInt(inputTemp[1].trim());
         if(startMinute < 0) throw new Exception("Invalid time entry");
         String startMinResult = "";
         if(startMinute < 10){
-            startMinResult = "0" + startMinResult;
+            startMinResult = "0" + String.valueOf(startMinute);
+        }else{
+            startMinResult = String.valueOf(startMinute);
         }
         return startHourResult.concat(":" + startMinResult);
     }
@@ -1581,6 +1595,7 @@ public class Controller {
     }
 
     public Lesson getLessonByDayName(){
+        scan.nextLine();
         System.out.println("Please enter the day name (E.g. Wednesday):");
         String dayName = scan.next();
         scan.nextLine();
@@ -1588,6 +1603,7 @@ public class Controller {
     }
 
     public Lesson getLessonByMonth(){
+        scan.nextLine();
         LocalDate localDateNow = LocalDate.now();
         List<Lesson> listOfLesson;
         while(true) {

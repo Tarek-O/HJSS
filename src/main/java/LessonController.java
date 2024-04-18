@@ -62,11 +62,14 @@ public class LessonController{
         return lesson;
     }
 
-    public Lesson getLessonByDate(LocalDate localDate){
+    public List<Lesson> getLessonByDate(LocalDate localDate){
+        List<Lesson> listOfLesson = new ArrayList<>();
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()){
-            if(entry.getValue().getDateOfLesson().equals(localDate)) return entry.getValue();
+            if(entry.getValue().getDateOfLesson().equals(localDate)){
+                listOfLesson.add(entry.getValue());
+            }
         }
-        return null;
+        return listOfLesson;
     }
 
     /**

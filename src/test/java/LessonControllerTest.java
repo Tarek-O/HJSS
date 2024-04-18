@@ -108,8 +108,8 @@ class LessonControllerTest {
         LocalDate localDate = LocalDate.of(2024, 4, 22);
         Lesson lesson = new Lesson(localDate, 1, LocalTime.now(), LocalTime.now().plusHours(1), "Coach Name");
         lessonController.addNewLesson(lesson);
-        Lesson lesson2 = lessonController.getLessonByDate(localDate);
-        assertEquals(lesson, lesson2);
+        List<Lesson> listOfLessons = lessonController.getLessonByDate(localDate);
+        assertTrue(listOfLessons.contains(lesson));
     }
 
     @Test

@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added unit tests">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Little changes and bug fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Learner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Learner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dataSet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SchoolControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LearnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LearnerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +95,7 @@
     "JUnit.LearnerTest.setEmergencyContactNumber.executor": "Run",
     "JUnit.LearnerTest.setEmergencyContactNumberWithCountryCode.executor": "Run",
     "JUnit.LearnerTest.setEmergencyContactNumberWithInvalidNumber.executor": "Run",
+    "JUnit.LearnerTest.setGender.executor": "Run",
     "JUnit.LearnerTest.setGenderAnythingElse.executor": "Run",
     "JUnit.LearnerTest.setGenderMale.executor": "Run",
     "JUnit.LearnerTest.setGenderNumber.executor": "Run",
@@ -146,7 +146,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -166,51 +166,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SchoolControllerTest.incrementLearnerGrade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LearnerTest.setGender" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="incrementLearnerGrade" />
+      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
+      <option name="METHOD_NAME" value="setGender" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SchoolControllerTest.isLearnerAgeValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LearnerTest.setGenderAnythingElse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="isLearnerAgeValid" />
+      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
+      <option name="METHOD_NAME" value="setGenderAnythingElse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SchoolControllerTest.modifyBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LearnerTest.setGenderMale" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="modifyBooking" />
+      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
+      <option name="METHOD_NAME" value="setGenderMale" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SchoolControllerTest.removeLesson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LearnerTest.setGenderNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="removeLesson" />
+      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
+      <option name="METHOD_NAME" value="setGenderNumber" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SchoolControllerTest.revalidateLearnerBookings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LessonControllerTest.getLessonByDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
-      <option name="METHOD_NAME" value="revalidateLearnerBookings" />
+      <option name="MAIN_CLASS_NAME" value="LessonControllerTest" />
+      <option name="METHOD_NAME" value="getLessonByDate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -218,19 +218,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main Exec" />
-      <item itemvalue="JUnit.SchoolControllerTest.incrementLearnerGrade" />
-      <item itemvalue="JUnit.SchoolControllerTest.isLearnerAgeValid" />
-      <item itemvalue="JUnit.SchoolControllerTest.modifyBooking" />
-      <item itemvalue="JUnit.SchoolControllerTest.removeLesson" />
-      <item itemvalue="JUnit.SchoolControllerTest.revalidateLearnerBookings" />
+      <item itemvalue="JUnit.LearnerTest.setGender" />
+      <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
+      <item itemvalue="JUnit.LearnerTest.setGenderMale" />
+      <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
+      <item itemvalue="JUnit.LessonControllerTest.getLessonByDate" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SchoolControllerTest.removeLesson" />
-        <item itemvalue="JUnit.SchoolControllerTest.isLearnerAgeValid" />
-        <item itemvalue="JUnit.SchoolControllerTest.revalidateLearnerBookings" />
-        <item itemvalue="JUnit.SchoolControllerTest.incrementLearnerGrade" />
-        <item itemvalue="JUnit.SchoolControllerTest.modifyBooking" />
+        <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
+        <item itemvalue="JUnit.LearnerTest.setGenderMale" />
+        <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
+        <item itemvalue="JUnit.LearnerTest.setGender" />
+        <item itemvalue="JUnit.LessonControllerTest.getLessonByDate" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +277,9 @@
       <workItem from="1713044328235" duration="83000" />
       <workItem from="1713101480726" duration="5190000" />
       <workItem from="1713269822350" duration="8421000" />
-      <workItem from="1713343108340" duration="19929000" />
+      <workItem from="1713343108340" duration="19959000" />
+      <workItem from="1713440098700" duration="849000" />
+      <workItem from="1713441567322" duration="10530000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -583,14 +585,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713281564629</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Little changes and bug fixing">
+      <option name="closed" value="true" />
+      <created>1713392396781</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713392396781</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Isolated booking, canceling and attending functionality from Lesson class into controllers" />
     <MESSAGE value="Refactored LessonHistory to LessonEvent. Added key generation for the booking reference system and refactored SchoolController methods." />
     <MESSAGE value="Handled case where learner can cancel an attended lesson" />
     <MESSAGE value="Added numeric rating for attended classes" />
@@ -615,7 +624,8 @@
     <MESSAGE value="Added data creation class and data. Added modifyCoach function and refactoring" />
     <MESSAGE value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
     <MESSAGE value="Added unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests" />
+    <MESSAGE value="Little changes and bug fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Little changes and bug fixing" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -625,23 +635,58 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>796</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
           <line>237</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>1464</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
-          <line>403</line>
-          <option name="timeStamp" value="53" />
+          <line>364</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
+          <line>244</line>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>1456</line>
-          <option name="timeStamp" value="57" />
+          <line>584</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>598</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>738</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>394</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>325</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>328</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>1542</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -652,7 +697,9 @@
         <PinnedItemInfo parentTag="Lesson" memberName="startTime" />
         <PinnedItemInfo parentTag="Lesson" memberName="maxNumberOfLearners" />
         <PinnedItemInfo parentTag="SchoolController" memberName="learnerController" />
+        <PinnedItemInfo parentTag="Lesson" memberName="listOfLearners" />
         <PinnedItemInfo parentTag="Lesson" memberName="dateOfLesson" />
+        <PinnedItemInfo parentTag="java.lang.Double" memberName="value" />
         <PinnedItemInfo parentTag="LessonController" memberName="mapOfLessons" />
       </pinned-members>
     </pin-to-top-manager>

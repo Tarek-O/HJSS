@@ -53,7 +53,7 @@ Log of Actions:
 BREF_00000005, FG180519, 0, Coach Grade1
 ********
 Lesson:
-08/05/2024, 18:00, 19:00, 1, Coach Grade1
+08/05/2024, 18:00, 19:00, 1, Coach Grade1Sub
 ********
 Lesson:
 10/05/2024, 16:00, 17:00, 1, Coach Grade1
@@ -184,9 +184,7 @@ BREF_00000320, TG190203, 0, Coach Grade3
 BREF_00000320, TG190203, -1, Coach Grade3
 BREF_00000700, TO170712, 0, Coach Grade3
 BREF_00000701, WO170713, 0, Coach Grade3
-BREF_00000701, WO170713, 1, Did not enjoy it, 2, Coach Grade3
 BREF_00000702, PO170114, 0, Coach Grade3
-BREF_00000702, PO170114, 1, I learned how to butterfly, 1, Coach Grade3
 BREF_00000382, FG180519, 0, Coach Grade3
 ********
 Lesson:
@@ -514,6 +512,12 @@ Lesson:
 ********
 Lesson:
 05/07/2024, 16:00, 17:00, 4, Coach Grade4
+Learners attending:
+LF170817, TF170818
+Log of Actions:
+BREF_00300604, LF170817, 0, Coach Grade4
+BREF_00300604, LF170817, 1, Ive seen better, 3, Coach Grade4
+BREF_00300604, TF170818, 0, Coach Grade4
 ********
 Lesson:
 05/07/2024, 17:00, 18:00, 4, Coach Grade4
