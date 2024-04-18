@@ -113,6 +113,7 @@ public class SchoolController {
     public void removeLearner(Learner learner){
         for(Map.Entry<String, Lesson> entry : getMapOfLessons().entrySet()){
             entry.getValue().getListOfLearners().remove(learner.getId());
+            entry.getValue().getListOfLearners().add(deletedLearnerMock.getId());
             for(int i = 0 ; i < entry.getValue().getLogOfActions().size(); i++){
                 LessonEvent lessonEvent = entry.getValue().getLogOfActions().get(i);
                 if(lessonEvent.getLearnerID().equals(learner.getId())){

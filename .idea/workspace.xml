@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Little changes and bug fixing">
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Tiny enhancements">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LessonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataSet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataSet.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LearnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LearnerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LessonControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Coursework\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -142,7 +140,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -162,6 +160,16 @@
     <configuration name="Main Exec" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mainExecutable" />
       <module name="Coursework" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LearnerControllerTest.getLearnerByID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LearnerControllerTest" />
+      <option name="METHOD_NAME" value="getLearnerByID" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -206,31 +214,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LessonControllerTest.getLessonByDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Coursework" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LessonControllerTest" />
-      <option name="METHOD_NAME" value="getLessonByDate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main Exec" />
+      <item itemvalue="JUnit.LearnerControllerTest.getLearnerByID" />
       <item itemvalue="JUnit.LearnerTest.setGender" />
       <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
       <item itemvalue="JUnit.LearnerTest.setGenderMale" />
       <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
-      <item itemvalue="JUnit.LessonControllerTest.getLessonByDate" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LearnerControllerTest.getLearnerByID" />
         <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
         <item itemvalue="JUnit.LearnerTest.setGenderMale" />
         <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
         <item itemvalue="JUnit.LearnerTest.setGender" />
-        <item itemvalue="JUnit.LessonControllerTest.getLessonByDate" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +277,7 @@
       <workItem from="1713269822350" duration="8421000" />
       <workItem from="1713343108340" duration="19959000" />
       <workItem from="1713440098700" duration="849000" />
-      <workItem from="1713441567322" duration="10530000" />
+      <workItem from="1713441567322" duration="17850000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -593,14 +591,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713392396781</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Tiny enhancements">
+      <option name="closed" value="true" />
+      <created>1713457517552</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713457517552</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored LessonHistory to LessonEvent. Added key generation for the booking reference system and refactored SchoolController methods." />
     <MESSAGE value="Handled case where learner can cancel an attended lesson" />
     <MESSAGE value="Added numeric rating for attended classes" />
     <MESSAGE value="Refactored timeSlot to LocalTime instead of String" />
@@ -625,7 +630,8 @@
     <MESSAGE value="Huge commit of console behaviors, data creation and basic dataset. New methods and refactoring to handle new cases found" />
     <MESSAGE value="Added unit tests" />
     <MESSAGE value="Little changes and bug fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little changes and bug fixing" />
+    <MESSAGE value="Tiny enhancements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tiny enhancements" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -635,22 +641,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>237</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
           <line>1464</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
-          <line>364</line>
+          <line>365</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SchoolController.java</url>
-          <line>244</line>
+          <line>245</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
