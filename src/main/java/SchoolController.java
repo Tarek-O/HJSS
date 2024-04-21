@@ -17,14 +17,14 @@ public class SchoolController {
     private Learner deletedLearnerMock;
     SchoolController(){
         try {
-            deletedLearnerMock = new Learner("DELETED LEARNER", "M", LocalDate.now(), "07570492050", 1);
+            deletedLearnerMock = new Learner("XDELETED XLEARNER", "M", LocalDate.now(), "07570492050", 1);
         }catch (Exception e){}
     }
     SchoolController(LearnerController learnerController, LessonController lessonController){
         setLearnerController(learnerController);
         setLessonController(lessonController);
         try {
-            deletedLearnerMock = new Learner("DELETED LEARNER", "M", LocalDate.now(), "07570492050", 1);
+            deletedLearnerMock = new Learner("XDELETED XLEARNER", "M", LocalDate.now(), "07570492050", 1);
         }catch (Exception e){}
     }
 

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="HJSS:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Tiny enhancements">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="7c37216a-53f1-474c-8b83-8f04694c10cc" name="Changes" comment="Added jar executable file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/HJSS_jar/HJSS.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SchoolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainExecutable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,87 +76,90 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Controller.executor": "Run",
-    "Application.DataCreation.executor": "Debug",
-    "Application.Learner.executor": "Run",
-    "Application.Main Exec.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Application.mainExecutable.executor": "Debug",
-    "Application.temp.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.LearnerControllerTest.addNewLearner.executor": "Run",
-    "JUnit.LearnerControllerTest.addNewLearnerDuplicate.executor": "Run",
-    "JUnit.LearnerControllerTest.getLearnerByID.executor": "Run",
-    "JUnit.LearnerControllerTest.getLearnerByIDNotExisting.executor": "Run",
-    "JUnit.LearnerControllerTest.getListOfLearners.executor": "Run",
-    "JUnit.LearnerControllerTest.getListOfLearnersByLearnerID.executor": "Debug",
-    "JUnit.LearnerControllerTest.getListOfLearnersByLearnerIDWithDifferentIDs.executor": "Run",
-    "JUnit.LearnerControllerTest.removeLearner.executor": "Run",
-    "JUnit.LearnerControllerTest.removeLearnerNotExisting.executor": "Run",
-    "JUnit.LearnerTest.setBirthUnbornChild.executor": "Run",
-    "JUnit.LearnerTest.setEmergencyContactNumber.executor": "Run",
-    "JUnit.LearnerTest.setEmergencyContactNumberWithCountryCode.executor": "Run",
-    "JUnit.LearnerTest.setEmergencyContactNumberWithInvalidNumber.executor": "Run",
-    "JUnit.LearnerTest.setGender.executor": "Run",
-    "JUnit.LearnerTest.setGenderAnythingElse.executor": "Run",
-    "JUnit.LearnerTest.setGenderMale.executor": "Run",
-    "JUnit.LearnerTest.setGenderNumber.executor": "Run",
-    "JUnit.LessonControllerTest.addNewLesson.executor": "Run",
-    "JUnit.LessonControllerTest.addOrModifyLesson.executor": "Run",
-    "JUnit.LessonControllerTest.attendLesson.executor": "Run",
-    "JUnit.LessonControllerTest.bookLesson.executor": "Run",
-    "JUnit.LessonControllerTest.cancelLesson.executor": "Run",
-    "JUnit.LessonControllerTest.getFamiliarKeys.executor": "Debug",
-    "JUnit.LessonControllerTest.getLessonByDate.executor": "Run",
-    "JUnit.LessonControllerTest.getLessonByID.executor": "Run",
-    "JUnit.LessonControllerTest.getListOfLessonsByCoach.executor": "Run",
-    "JUnit.LessonControllerTest.hasLearnerAttendedLesson.executor": "Run",
-    "JUnit.LessonControllerTest.hasLearnerAttendedOrCanceledLesson.executor": "Run",
-    "JUnit.LessonControllerTest.hasLearnerBookedLesson.executor": "Run",
-    "JUnit.LessonControllerTest.removeLesson.executor": "Run",
-    "JUnit.LessonTest.hasAvailableSpot.executor": "Run",
-    "JUnit.LessonTest.hasAvailableSpotInvalid.executor": "Run",
-    "JUnit.SchoolControllerTest.attendLesson.executor": "Run",
-    "JUnit.SchoolControllerTest.bookLearnerToLesson.executor": "Run",
-    "JUnit.SchoolControllerTest.incrementLearnerGrade.executor": "Run",
-    "JUnit.SchoolControllerTest.isLearnerAgeValid.executor": "Run",
-    "JUnit.SchoolControllerTest.modifyBooking.executor": "Run",
-    "JUnit.SchoolControllerTest.removeLesson.executor": "Run",
-    "JUnit.SchoolControllerTest.revalidateLearnerBookings.executor": "Run",
-    "JUnit.test.test.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Controller.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DataCreation.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Learner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main Exec.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.mainExecutable.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.temp.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.LearnerControllerTest.addNewLearner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.addNewLearnerDuplicate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.getLearnerByID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.getLearnerByIDNotExisting.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.getListOfLearners.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.getListOfLearnersByLearnerID.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LearnerControllerTest.getListOfLearnersByLearnerIDWithDifferentIDs.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.removeLearner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerControllerTest.removeLearnerNotExisting.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setBirthUnbornChild.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setEmergencyContactNumber.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setEmergencyContactNumberWithCountryCode.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setEmergencyContactNumberWithInvalidNumber.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setGender.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setGenderAnythingElse.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setGenderMale.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LearnerTest.setGenderNumber.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.addNewLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.addOrModifyLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.attendLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.bookLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.cancelLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.getFamiliarKeys.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LessonControllerTest.getLessonByDate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.getLessonByID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.getListOfLessonsByCoach.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.hasLearnerAttendedLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.hasLearnerAttendedOrCanceledLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.hasLearnerBookedLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonControllerTest.removeLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonTest.hasAvailableSpot.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LessonTest.hasAvailableSpotInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.attendLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.bookLearnerToLesson.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SchoolControllerTest.incrementLearnerGrade.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.isLearnerAgeValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.modifyBooking.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.removeLesson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchoolControllerTest.revalidateLearnerBookings.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.test.test.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/user/OneDrive - University of Hertfordshire/University of Hertfordshire/7COM1025/Coursework/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\OneDrive - University of Hertfordshire\University of Hertfordshire\7COM1025\Coursework" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
@@ -174,21 +183,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LearnerTest.setGender" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LearnerControllerTest.getLearnerByIDNotExisting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coursework" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
-      <option name="METHOD_NAME" value="setGender" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LearnerTest.setGenderAnythingElse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Coursework" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LearnerTest" />
-      <option name="METHOD_NAME" value="setGenderAnythingElse" />
+      <option name="MAIN_CLASS_NAME" value="LearnerControllerTest" />
+      <option name="METHOD_NAME" value="getLearnerByIDNotExisting" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -214,21 +213,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SchoolControllerTest.bookLearnerToLesson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coursework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SchoolControllerTest" />
+      <option name="METHOD_NAME" value="bookLearnerToLesson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main Exec" />
+      <item itemvalue="JUnit.LearnerControllerTest.getLearnerByIDNotExisting" />
+      <item itemvalue="JUnit.SchoolControllerTest.bookLearnerToLesson" />
       <item itemvalue="JUnit.LearnerControllerTest.getLearnerByID" />
-      <item itemvalue="JUnit.LearnerTest.setGender" />
-      <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
       <item itemvalue="JUnit.LearnerTest.setGenderMale" />
       <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SchoolControllerTest.bookLearnerToLesson" />
+        <item itemvalue="JUnit.LearnerControllerTest.getLearnerByIDNotExisting" />
         <item itemvalue="JUnit.LearnerControllerTest.getLearnerByID" />
         <item itemvalue="JUnit.LearnerTest.setGenderNumber" />
         <item itemvalue="JUnit.LearnerTest.setGenderMale" />
-        <item itemvalue="JUnit.LearnerTest.setGenderAnythingElse" />
-        <item itemvalue="JUnit.LearnerTest.setGender" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +286,12 @@
       <workItem from="1713269822350" duration="8421000" />
       <workItem from="1713343108340" duration="19959000" />
       <workItem from="1713440098700" duration="849000" />
-      <workItem from="1713441567322" duration="17850000" />
+      <workItem from="1713441567322" duration="18002000" />
+      <workItem from="1713465258927" duration="20000" />
+      <workItem from="1713482257681" duration="978000" />
+      <workItem from="1713556946012" duration="4294000" />
+      <workItem from="1713637920797" duration="3210000" />
+      <workItem from="1713713168678" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="Initializing files">
       <option name="closed" value="true" />
@@ -599,14 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713457517552</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added jar executable file">
+      <option name="closed" value="true" />
+      <created>1713465219559</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713465219559</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Handled case where learner can cancel an attended lesson" />
     <MESSAGE value="Added numeric rating for attended classes" />
     <MESSAGE value="Refactored timeSlot to LocalTime instead of String" />
     <MESSAGE value="Refactored Learner age calculation into controller instead of object itself" />
@@ -631,7 +652,8 @@
     <MESSAGE value="Added unit tests" />
     <MESSAGE value="Little changes and bug fixing" />
     <MESSAGE value="Tiny enhancements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tiny enhancements" />
+    <MESSAGE value="Added jar executable file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added jar executable file" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -694,6 +716,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Lesson" memberName="endTime" />
+        <PinnedItemInfo parentTag="Controller" memberName="schoolController" />
         <PinnedItemInfo parentTag="LearnerController" memberName="arrayOfLearners" />
         <PinnedItemInfo parentTag="Lesson" memberName="startTime" />
         <PinnedItemInfo parentTag="Lesson" memberName="maxNumberOfLearners" />
